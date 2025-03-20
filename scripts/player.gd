@@ -4,7 +4,9 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-
+func _ready() -> void:
+	var label = get_tree().root.get_node("main/CanvasLayer/Control/Label")
+	label.text = "smt"
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -19,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		$CollisionShape2D/Sprite2D.scale.x = abs($CollisionShape2D/Sprite2D.scale.x) * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

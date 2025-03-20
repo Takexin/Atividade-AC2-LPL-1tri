@@ -23,3 +23,17 @@ shape = SubResource("RectangleShape2D_0wfyh")
 position = Vector2(-3.99999, 0)
 scale = Vector2(2.85937, 1)
 texture = ExtResource("1_o5qli")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "asdfasdf"
