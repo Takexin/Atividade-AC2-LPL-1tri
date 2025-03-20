@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd577gle5gkfo"]
+
+[ext_resource type="Script" uid="uid://kv7tqw5geii" path="res://scripts/tree_ground.gd" id="1_no4wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(511.036, 131)
+
+[node name="treeGround" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_no4wa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(461.5, 506)
+scale = Vector2(4.44, 2.8)
+shape = SubResource("RectangleShape2D_0wfyh")
