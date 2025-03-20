@@ -3,11 +3,18 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var score = 0
+@onready var label = get_tree().root.get_node("main/CanvasLayer/Control/Label")
 func _ready() -> void:
-	var label = get_tree().root.get_node("main/CanvasLayer/Control/Label")
+	
 	label.text = "smt"
-func _physics_process(delta: float) -> void:
+	
+func _process(delta: float) -> void:
+	score+=1
+	if (score >= 60):
+		label.text = score
+
+func _physics_process(delta: float) -> void: #fisica do spr
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -26,3 +33,4 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
