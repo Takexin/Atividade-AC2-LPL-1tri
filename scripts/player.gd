@@ -4,15 +4,22 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var score = 0
+var dialogo = [
+	"Era uma vez...",
+	"Alguma coisa aconteceu"
+]
 @onready var label = get_tree().root.get_node("main/CanvasLayer/Control/Label")
+
+func animacao_texto():
+	var subtexto
+
 func _ready() -> void:
 	
 	label.text = "smt"
 	
 func _process(delta: float) -> void:
 	score+=1
-	if (score >= 60):
-		label.text = score
+
 
 func _physics_process(delta: float) -> void: #fisica do spr
 	# Add the gravity.
