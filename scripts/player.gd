@@ -19,6 +19,10 @@ var dialogo = [
 func animacao_texto():
 	var subtexto
 
+func _ready() -> void:
+	var dialogue = load("res://assets/dialogue/main.dialogue")
+	DialogueManager.show_example_dialogue_balloon(dialogue, "start")
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed("actionAttack") and canAttack):
 		print("attacked")
@@ -38,10 +42,6 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("actionJump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

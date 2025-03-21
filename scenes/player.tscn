@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://h2l21fvvjurn"]
 
 [ext_resource type="Script" uid="uid://dvbc1dtelsdy2" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://2yege22q8nud" path="res://assets/1665843963-912871-color-trial-3.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cwe3i0wcjsao6" path="res://assets/emails/Adobe Express - file.png" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
 radius = 15.8972
@@ -21,9 +21,9 @@ scale = Vector2(2.8, 1)
 shape = SubResource("CapsuleShape2D_u8vuu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
-position = Vector2(1.08885, -5.13698)
-scale = Vector2(0.129947, 0.21612)
-texture = ExtResource("2_g2els")
+position = Vector2(1.08885, -0.342466)
+scale = Vector2(0.202501, 0.336787)
+texture = ExtResource("2_qhqgy")
 
 [node name="attackArea" type="Area2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
 monitoring = false
