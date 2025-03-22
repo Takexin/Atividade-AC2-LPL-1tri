@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://assets/dialogue/balloon.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
@@ -28,10 +32,12 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 tree="group for the tree object"
 table="group for crafting table "
 player=""
+deposit=""
 
 [gui]
 
-theme/custom_font="uid://ditcpi0qghrv"
+theme/default_theme_scale=4.0
+theme/custom_font="uid://xwxcphbceqys"
 
 [input]
 

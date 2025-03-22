@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://br0uyygc1038q"]
+
+[ext_resource type="Script" uid="uid://cv4x4hffpglg" path="res://scripts/deposit.gd" id="1_iv2y1"]
+[ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="2_6tid1"]
+[ext_resource type="Texture2D" uid="uid://cli30bav0m1vh" path="res://assets/emails/money.png" id="4_102md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu86w"]
+size = Vector2(35.4961, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2f5gb"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8522"]
+size = Vector2(521, 154)
+
+[node name="deposit" type="Node2D"]
+script = ExtResource("1_iv2y1")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["deposit"]]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-9.99999, 0)
+scale = Vector2(8.05723, 8.05723)
+shape = SubResource("RectangleShape2D_gu86w")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+self_modulate = Color(0.979577, 0.000234493, 0.843559, 1)
+texture_filter = 1
+scale = Vector2(1.28361, 1.28036)
+texture = ExtResource("2_6tid1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dialogue" type="Sprite2D" parent="Control"]
+self_modulate = Color(1, 1, 1, 0.541)
+
+[node name="Label" type="Label" parent="Control/Dialogue"]
+offset_left = -65.0
+offset_top = -197.0
+offset_right = -25.0
+offset_bottom = -129.0
+text = "3"
+label_settings = SubResource("LabelSettings_2f5gb")
+
+[node name="Icon" type="Sprite2D" parent="Control/Dialogue"]
+modulate = Color(1, 1, 1, 0.718)
+self_modulate = Color(100, 100, 100, 1)
+z_index = -1
+position = Vector2(7.50001, -165)
+scale = Vector2(2.08594, 1.05776)
+texture = ExtResource("2_6tid1")
+
+[node name="Money" type="Sprite2D" parent="Control/Dialogue"]
+position = Vector2(62, -161)
+scale = Vector2(1.98235, 1.98235)
+texture = ExtResource("4_102md")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_x8522")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

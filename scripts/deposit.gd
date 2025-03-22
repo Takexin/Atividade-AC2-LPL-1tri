@@ -1,9 +1,10 @@
 extends Node2D
 
 var capturedPlayer = false
-
+@onready var depositLabel = $Control/Dialogue/Label
+@onready var player = get_parent().get_node("Player/CharacterBody2D")
 func _process(delta: float) -> void:
-	
+	depositLabel.text = str(player.scoreNeeded)
 	if capturedPlayer:
 		$Control/Dialogue.scale.x = move_toward($Control/Dialogue.scale.x, 1, 0.1)
 		$Control/Dialogue.scale.y = move_toward($Control/Dialogue.scale.y, 1, 0.1)

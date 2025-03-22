@@ -1,11 +1,10 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+Bras Cubas: O fundador da minha família foi um certo Damião Cubas. 
+Bras cubas: que floresceu na primeira metade do século XVIII. 
+Bras cubas: Era tanoeiro de ofício, natural do Rio de Janeiro
+=> END 
+~ morte
+Bras Cubas: plantou, colheu, permutou o seu produto por boas e
+Bras Cubas: honradas patacas, até que morreu, deixando grosso cabedal a um
+Bras Cuas: filho, licenciado Luís Cubas
+=> END 

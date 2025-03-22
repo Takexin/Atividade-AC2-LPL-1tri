@@ -29,7 +29,7 @@ texture = ExtResource("2_qhqgy")
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea"]
-position = Vector2(222.886, 19.0153)
+position = Vector2(152.707, -5.08431)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
