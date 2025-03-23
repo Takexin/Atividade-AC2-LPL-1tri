@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kkijexh0l5hj"
+path="res://.godot/imported/voice_sans.mp3-4f9f2970f3c7d161d68d7febd1345986.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dialogue audio/voice_sans.mp3"
+dest_files=["res://.godot/imported/voice_sans.mp3-4f9f2970f3c7d161d68d7febd1345986.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

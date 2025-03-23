@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm6b21tahu0mw"
+path="res://.godot/imported/tutu.mp3-c58c1afa9b0b1b1cc7609e4c5e18eef1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dialogue audio/tutu.mp3"
+dest_files=["res://.godot/imported/tutu.mp3-c58c1afa9b0b1b1cc7609e4c5e18eef1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

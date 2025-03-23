@@ -174,3 +174,12 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	if dialogue_line.character == "Bras Cubas":
+		$Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
+		if not letter in [",", ".", " "]:
+			$stream_tutu.pitch_scale = randf_range(0.85,0.90)
+			$stream_tutu.play()
+			

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://lprdkbhau637"]
+[gd_scene load_steps=5 format=3 uid="uid://lprdkbhau637"]
 
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="1_avsvi"]
 [ext_resource type="Script" uid="uid://c3i6a80ixiqsk" path="res://scripts/tree.gd" id="1_vplca"]
+[ext_resource type="AudioStream" uid="uid://ledswef7kb3l" path="res://assets/audio/tree_break.mp3" id="3_viusy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ict6q"]
 size = Vector2(34, 138)
@@ -10,6 +11,7 @@ size = Vector2(34, 138)
 
 [node name="Area2D" type="Area2D" parent="." groups=["tree"]]
 scale = Vector2(2.74386, 5.63483)
+collision_layer = 3
 script = ExtResource("1_vplca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -22,3 +24,9 @@ texture_filter = 1
 position = Vector2(1, -59)
 scale = Vector2(0.273438, 1.08594)
 texture = ExtResource("1_avsvi")
+
+[node name="treeBreak" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("3_viusy")
+volume_db = 2.0
+
+[connection signal="finished" from="Area2D/treeBreak" to="Area2D" method="_on_tree_break_finished"]
