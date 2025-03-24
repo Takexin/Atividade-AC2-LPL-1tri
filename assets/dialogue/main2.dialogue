@@ -1,0 +1,39 @@
+~ start
+Luís Cubas: Vossa Excelência é a estrela que guia esta colônia! 
+Luís Cubas: Sem sua liderança, estaríamos à deriva!
+
+Conde da Cunha: Hah! Muitos dizem isso na esperança de favores. 
+Conde da Cunha: Mas diga-me, 
+Conde da Cunha: qual seu verdadeiro interesse?
+
+Luís Cubas: Interesse? 
+Luís Cubas: Apenas o prazer de conversar com um homem tão ilustre.
+
+Conde da Cunha: Hm. Vamos ver se sua língua é tão afiada quanto sua bajulação. 
+Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
+- Acredito que precisamos fortalecer o comércio e enriquecer ainda mais a nobreza.
+	Conde da Cunha: Palavras sábias.
+	Conde da Cunha: A nobreza forte mantém a ordem. Mas me diga,
+	Conde da Cunha: o que o senhor tem feito para contribuir com isso?
+	
+	Luís Cubas: Tenho investido na importação de produtos de luxo e financiado algumas expedições.
+	
+	Conde da Cunha: Hah! Então és um homem que sabe onde colocar suas moedas. Gostei de você.
+- O Brasil precisa de mais autonomia para crescer de verdade
+	Conde da Cunha: Está sugerindo que devemos contrariar a Coroa?
+	
+	Luís Cubas: De forma alguma!
+	Luís Cubas: Apenas digo que um Brasil próspero significa um Império mais forte.
+	
+	
+	Conde da Cunha: Hm... Você joga bem com as palavras.
+	Conde da Cunha: Ainda não sei se devo confiar em você.
+- O verdadeiro poder está em quem controla o exército e os fornecimentos.
+	Conde da Cunha: Vejo que enxerga além da política.
+	Conde da Cunha: Dinheiro e soldados governam mais que decretos.
+	
+	Luís Cubas: Apenas um homem tolo desprezaria o poder real que move um império. 
+	
+	Conde da Cunha: Hah! Um homem prático. Gosto disso.
+	Conde da Cunha: Precisamos conversar mais...
+=> END

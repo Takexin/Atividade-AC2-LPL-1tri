@@ -1,6 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+@onready var portrait = %Portrait
+
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
 
@@ -97,7 +99,12 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
-
+	
+	var portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
+	if FileAccess.file_exists(portrait_path):
+		portrait.texture = load(portrait_path)
+	else:
+		portrait.texture = null
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 
@@ -178,8 +185,14 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	if dialogue_line.character == "Bras Cubas":
-		$Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
 		if not letter in [",", ".", " "]:
 			$stream_tutu.pitch_scale = randf_range(0.85,0.90)
 			$stream_tutu.play()
-			
+	elif dialogue_line.character == "Luís Cubas":
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
+		if not letter in [",", ".", " "]:
+			$stream_tutu.pitch_scale = randf_range(1.00,1.05)
+			$stream_tutu.play()
+	else:
+		$stream_placeholder.play()

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var SPEED = 300.0
 const ACCEL = 40
 const JUMP_VELOCITY = -400.0
 var canWalk = false
@@ -26,23 +26,32 @@ signal incorrectAmmount
 @onready var dialogue = load("res://assets/dialogue/main.dialogue")
 @onready var attackArea = $CollisionShape2D/Sprite2D/attackArea
 @onready var rayCast = $CollisionShape2D/Sprite2D/RayCast2D
+@onready var isMain = get_tree().root.get_node("core/main")
 func animacao_texto():
 	var subtexto
 
 func _ready() -> void:
 	
-	DialogueManager.show_dialogue_balloon(dialogue, "start")
-	DialogueManager.connect("dialogue_ended", onDialogueEnded)
-	get_tree().root.get_node("core/main/AnimationPlayer").connect("animation_finished", onAnimationEnded)
+	if isMain:
+		DialogueManager.show_dialogue_balloon(dialogue, "start")
+		DialogueManager.connect("dialogue_ended", onDialogueEnded)
+		var animationPlayer = get_tree().root.get_node("core/main/AnimationPlayer")
+		animationPlayer.connect("animation_finished", onAnimationEnded)
+	else:
+		canWalk = true
+		canAttack = true
+		$Camera2D.enabled = true
 var hasRun = false
 func onDialogueEnded(resource):
 	if !hasRun:
 		hasRun = true
-		fade.fadeTrigger = true
-		await get_tree().create_timer(1).timeout
-		DialogueManager.show_dialogue_balloon(dialogue, "comeco")
+		if fade:
+			fade.fadeTrigger = true
+			await get_tree().create_timer(1).timeout
+			DialogueManager.show_dialogue_balloon(dialogue, "comeco")
 	else:
-		get_parent().get_parent().get_node("AnimationPlayer").play("start")
+		if fade:
+			get_parent().get_parent().get_node("AnimationPlayer").play("start")
 
 func onAnimationEnded(name):
 	$Camera2D.enabled = true
@@ -59,8 +68,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().reload_current_scene()
 	
 func _process(delta: float) -> void:
-	label.text = "Madeiras %s"%madeiras
-	label2.text = "Dinheiro %s"%score
+	if label:
+		label.text = "Madeiras %s"%madeiras
+		label2.text = "Dinheiro %s"%score
 	if rayCast.is_colliding():
 		var body = rayCast.get_collider()
 		if body:
@@ -86,7 +96,10 @@ func _physics_process(delta: float) -> void: #fisica do spr
 		else:
 			$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL)
-		if !walkSound.playing:
+		if scoreNeeded == 0:
+			if SPEED > 0:
+				SPEED -= 1
+		if !walkSound.playing and isMain:
 			walkSound.play()
 		$CollisionShape2D/Sprite2D.scale.x = abs($CollisionShape2D/Sprite2D.scale.x) * direction
 	else:
@@ -121,12 +134,13 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("deposit"):
 		if score == 0:
 			wrongSound.play()
-			incorrectAmmount.emit(2)
+			incorrectAmmount.emit(2)  
 		else:
 			scoreNeeded -= score
 			if score > 0 and scoreNeeded > 0:
 				depositSound.play(1)
 			score = 0
 			if scoreNeeded <0:
+				wrongSound.play()
 				score = abs(scoreNeeded)
 				scoreNeeded=0

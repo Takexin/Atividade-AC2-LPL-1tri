@@ -203,7 +203,7 @@ position = Vector2(1734, 243)
 libraries = {
 &"": SubResource("AnimationLibrary_tipki")
 }
-speed_scale = 2.0
+speed_scale = 0.5
 
 [node name="startCamera" type="Camera2D" parent="main"]
 position = Vector2(339, 61)
