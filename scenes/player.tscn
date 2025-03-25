@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://h2l21fvvjurn"]
+[gd_scene load_steps=20 format=3 uid="uid://h2l21fvvjurn"]
 
 [ext_resource type="Script" uid="uid://dvbc1dtelsdy2" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cwe3i0wcjsao6" path="res://assets/emails/Adobe Express - file.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://ckn0euqflbde0" path="res://assets/emails/trisavo_idle-Sheet.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ucgj4b11ox4v" path="res://assets/emails/mouseicon.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://d013okra24u7i" path="res://assets/emails/trisavo_walk-Sheet.png" id="4_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://dhprroogjxbp6" path="res://assets/audio/walk1.mp3" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://bpsi2124gdml6" path="res://assets/audio/walk2.mp3" id="5_fjrip"]
 [ext_resource type="AudioStream" uid="uid://q4of0dw5tcn2" path="res://assets/audio/walk3.mp3" id="6_smehm"]
@@ -32,6 +33,66 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_y4r1p")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.202501, 0.336787)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CharacterBody2D/AnimationPlayer:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "mouse click"
@@ -49,10 +110,142 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_d2wvv"]
+resource_name = "idle_trisavo"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_y4r1p")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.992)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D/AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "walk_trisavo"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_d2wvv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.992)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D/AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
 &"RESET": SubResource("Animation_dqkch"),
-&"mouse click": SubResource("Animation_qhqgy")
+&"idle_trisavo": SubResource("Animation_d2wvv"),
+&"mouse click": SubResource("Animation_qhqgy"),
+&"walk_trisavo": SubResource("Animation_3v2ag")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ur7pv"]
@@ -72,11 +265,13 @@ scale = Vector2(2.8, 1)
 shape = SubResource("CapsuleShape2D_u8vuu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
+texture_filter = 1
 position = Vector2(1.08885, -0.342466)
 scale = Vector2(0.202501, 0.336787)
-texture = ExtResource("2_qhqgy")
+texture = ExtResource("2_y4r1p")
 
 [node name="attackArea" type="Area2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
+scale = Vector2(0.14967, 0.14967)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea"]
@@ -86,15 +281,15 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="Mouse" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
 self_modulate = Color(1, 1, 1, 0.619)
 texture_filter = 1
-position = Vector2(88.183, -111.855)
-scale = Vector2(4.10249, 4.56742)
+position = Vector2(17.966, -17.192)
+scale = Vector2(0.61402, 0.683606)
 texture = ExtResource("3_qhqgy")
 hframes = 2
 frame = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
 position = Vector2(-5.37701, 1.01686)
-scale = Vector2(1.76366, 2.96924)
+scale = Vector2(0.263967, 0.444406)
 target_position = Vector2(100, 0)
 collision_mask = 2
 collide_with_areas = true

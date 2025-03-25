@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnaraiaaegmya"]
+[gd_scene load_steps=12 format=3 uid="uid://dnaraiaaegmya"]
 
 [ext_resource type="Script" uid="uid://dcegcj5qyvcsy" path="res://assets/dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="AudioStream" uid="uid://kkijexh0l5hj" path="res://assets/audio/dialogue audio/voice_sans.mp3" id="4_ofehm"]
+[ext_resource type="AudioStream" uid="uid://cv4bu06lb8k8g" path="res://assets/audio/dialogue audio/cunha.mp3" id="5_2g7mb"]
 [ext_resource type="AudioStream" uid="uid://bm6b21tahu0mw" path="res://assets/audio/dialogue audio/tutu.mp3" id="5_nmn4d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -108,11 +109,11 @@ theme_override_constants/separation = 30
 
 [node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/HBoxContainer"]
 unique_name_in_owner = true
+clip_contents = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-
-[node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/HBoxContainer/Portrait"]
-custom_minimum_size = Vector2(150, 0)
+expand_mode = 1
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/HBoxContainer"]
 layout_mode = 2
@@ -165,6 +166,9 @@ text = "Response example"
 
 [node name="stream_placeholder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ofehm")
+
+[node name="stream_samis" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2g7mb")
 
 [node name="stream_tutu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nmn4d")

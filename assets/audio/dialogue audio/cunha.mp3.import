@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv4bu06lb8k8g"
+path="res://.godot/imported/cunha.mp3-3cefe5f09d0a1af7afeba2907ad2745a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dialogue audio/cunha.mp3"
+dest_files=["res://.godot/imported/cunha.mp3-3cefe5f09d0a1af7afeba2907ad2745a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

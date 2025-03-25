@@ -51,7 +51,7 @@ func onDialogueEnded(resource):
 			DialogueManager.show_dialogue_balloon(dialogue, "comeco")
 	else:
 		if fade:
-			get_parent().get_parent().get_node("AnimationPlayer").play("start")
+			get_tree().root.get_node("core/main/AnimationPlayer").play("start")
 
 func onAnimationEnded(name):
 	$Camera2D.enabled = true
