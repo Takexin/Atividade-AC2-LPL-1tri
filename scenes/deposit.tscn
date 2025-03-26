@@ -1,11 +1,114 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg5dq0so5e60d"]
+[gd_scene load_steps=20 format=3 uid="uid://dg5dq0so5e60d"]
 
 [ext_resource type="Script" uid="uid://cv4x4hffpglg" path="res://scripts/deposit.gd" id="1_iv2y1"]
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="2_6tid1"]
-[ext_resource type="Texture2D" uid="uid://cli30bav0m1vh" path="res://assets/emails/money.png" id="4_102md"]
+[ext_resource type="Texture2D" uid="uid://do6txlp7ifbw6" path="res://assets/emails/coin_spin-Sheet.png" id="3_1ammg"]
+[ext_resource type="Texture2D" uid="uid://dcchhd2d5qxgo" path="res://assets/emails/wood-Sheet.png" id="4_6tid1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gu86w"]
 size = Vector2(35.4961, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5gb"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7a8"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_docs3"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1moh"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5it3b"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0e7t"]
+atlas = ExtResource("3_1ammg")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm5w8"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qpul"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tom3p"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aerv"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3mx"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8a7m"]
+atlas = ExtResource("4_6tid1")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru4xb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_docs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1moh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5it3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0e7t")
+}],
+"loop": true,
+"name": &"money",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qpul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tom3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aerv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8a7m")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8522"]
 size = Vector2(521, 154)
@@ -44,11 +147,6 @@ position = Vector2(7.50001, -165)
 scale = Vector2(2.88594, 1.05776)
 texture = ExtResource("2_6tid1")
 
-[node name="Money" type="Sprite2D" parent="Control/Dialogue"]
-position = Vector2(62, -161)
-scale = Vector2(1.98235, 1.98235)
-texture = ExtResource("4_102md")
-
 [node name="Label" type="RichTextLabel" parent="Control/Dialogue"]
 offset_left = -144.0
 offset_top = -205.0
@@ -59,6 +157,14 @@ bbcode_enabled = true
 text = "asc"
 fit_content = true
 autowrap_mode = 0
+
+[node name="Money" type="AnimatedSprite2D" parent="Control/Dialogue"]
+texture_filter = 1
+position = Vector2(60, -180)
+scale = Vector2(5.17142, 5.17142)
+sprite_frames = SubResource("SpriteFrames_ru4xb")
+animation = &"money"
+autoplay = "money"
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false

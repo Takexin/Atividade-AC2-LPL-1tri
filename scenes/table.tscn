@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsw7tl1pbnvyn"]
+[gd_scene load_steps=21 format=3 uid="uid://bsw7tl1pbnvyn"]
 
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="1_02ppr"]
 [ext_resource type="Script" uid="uid://b6i1tlpla4s4u" path="res://scripts/table.gd" id="1_olh0b"]
-[ext_resource type="Texture2D" uid="uid://c5aeowe2tc7sy" path="res://assets/emails/wood.png" id="2_x8522"]
-[ext_resource type="Texture2D" uid="uid://cli30bav0m1vh" path="res://assets/emails/money.png" id="3_olh0b"]
+[ext_resource type="Texture2D" uid="uid://do6txlp7ifbw6" path="res://assets/emails/coin_spin-Sheet.png" id="3_olh0b"]
+[ext_resource type="Texture2D" uid="uid://dcchhd2d5qxgo" path="res://assets/emails/wood-Sheet.png" id="4_u03e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gu86w"]
 size = Vector2(35.4961, 20)
@@ -11,6 +11,108 @@ size = Vector2(35.4961, 20)
 [sub_resource type="LabelSettings" id="LabelSettings_2f5gb"]
 font_size = 40
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5gb"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7a8"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_docs3"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1moh"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5it3b"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0e7t"]
+atlas = ExtResource("3_olh0b")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm5w8"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qpul"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tom3p"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aerv"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3mx"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8a7m"]
+atlas = ExtResource("4_u03e6")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmkwv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_docs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1moh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5it3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0e7t")
+}],
+"loop": true,
+"name": &"money",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qpul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tom3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aerv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8a7m")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8522"]
 size = Vector2(521, 154)
@@ -41,12 +143,6 @@ offset_bottom = 40.0
 [node name="Dialogue" type="Sprite2D" parent="Control"]
 self_modulate = Color(1, 1, 1, 0.541)
 
-[node name="Wood" type="Sprite2D" parent="Control/Dialogue"]
-texture_filter = 1
-position = Vector2(-102, -158)
-scale = Vector2(1.71974, 1.71974)
-texture = ExtResource("2_x8522")
-
 [node name="Label2" type="Label" parent="Control/Dialogue"]
 offset_left = -34.0
 offset_top = -176.0
@@ -71,10 +167,23 @@ position = Vector2(-23, -165)
 scale = Vector2(3.72633, 1.05776)
 texture = ExtResource("1_02ppr")
 
-[node name="Money" type="Sprite2D" parent="Control/Dialogue"]
-position = Vector2(120, -153)
-scale = Vector2(1.98235, 1.98235)
-texture = ExtResource("3_olh0b")
+[node name="Wood" type="AnimatedSprite2D" parent="Control/Dialogue"]
+texture_filter = 1
+position = Vector2(-101, -163)
+scale = Vector2(3.57, 3.57)
+sprite_frames = SubResource("SpriteFrames_xmkwv")
+animation = &"wood"
+autoplay = "wood"
+frame = 1
+frame_progress = 0.638889
+
+[node name="Money" type="AnimatedSprite2D" parent="Control/Dialogue"]
+texture_filter = 1
+position = Vector2(115, -178)
+scale = Vector2(6.705, 6.705)
+sprite_frames = SubResource("SpriteFrames_xmkwv")
+animation = &"money"
+autoplay = "money"
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false

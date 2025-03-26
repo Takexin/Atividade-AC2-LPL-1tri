@@ -1,15 +1,173 @@
-[gd_scene load_steps=13 format=3 uid="uid://blxbaucp10f5n"]
+[gd_scene load_steps=29 format=3 uid="uid://blxbaucp10f5n"]
 
 [ext_resource type="PackedScene" uid="uid://h2l21fvvjurn" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://js8jaxqgnkqq" path="res://assets/emails/istockphoto-1887333430-640x640 (1).jpg" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dd577gle5gkfo" path="res://scenes/tree_ground.tscn" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://do6txlp7ifbw6" path="res://assets/emails/coin_spin-Sheet.png" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bsw7tl1pbnvyn" path="res://scenes/table.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://dcchhd2d5qxgo" path="res://assets/emails/wood-Sheet.png" id="5_choun"]
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://tvs4o4743nen" path="res://scripts/fade.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dg5dq0so5e60d" path="res://scenes/deposit.tscn" id="7_o6xl0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
 font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5gb"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7a8"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_docs3"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1moh"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5it3b"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0e7t"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm5w8"]
+atlas = ExtResource("5_choun")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qpul"]
+atlas = ExtResource("5_choun")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tom3p"]
+atlas = ExtResource("5_choun")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aerv"]
+atlas = ExtResource("5_choun")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y3mx"]
+atlas = ExtResource("5_choun")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8a7m"]
+atlas = ExtResource("5_choun")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ya4ey"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_docs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1moh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5it3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0e7t")
+}],
+"loop": true,
+"name": &"money",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qpul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tom3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aerv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8a7m")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85g3d"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_docs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1moh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5it3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0e7t")
+}],
+"loop": true,
+"name": &"money",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qpul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tom3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aerv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y3mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8a7m")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_tipki"]
 length = 0.001
@@ -134,7 +292,7 @@ script = null
 [node name="Untitled" type="Sprite2D" parent="main"]
 z_index = -13
 texture_filter = 1
-position = Vector2(71, -223)
+position = Vector2(71, -234)
 scale = Vector2(4.0254, 4.0254)
 texture = ExtResource("3_jyhfs")
 
@@ -149,7 +307,6 @@ freeze = true
 process_mode = 3
 
 [node name="Control" type="Control" parent="main/CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -157,25 +314,43 @@ offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="main/CanvasLayer/Control"]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
 
 [node name="Label2" type="Label" parent="main/CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
-offset_top = 33.0
-offset_right = 66.0
-offset_bottom = 56.0
+offset_left = 75.0
+offset_top = 66.0
+offset_right = 195.0
+offset_bottom = 112.0
 text = "asdfasdf"
 label_settings = SubResource("LabelSettings_jyhfs")
 
 [node name="Label" type="Label" parent="main/CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 70.0
+offset_right = 190.0
+offset_bottom = 46.0
 text = "asdfasdf"
 label_settings = SubResource("LabelSettings_jyhfs")
+
+[node name="Money" type="AnimatedSprite2D" parent="main/CanvasLayer/Control"]
+texture_filter = 1
+position = Vector2(28, 85)
+scale = Vector2(3.38062, 3.38062)
+sprite_frames = SubResource("SpriteFrames_ya4ey")
+animation = &"money"
+autoplay = "money"
+
+[node name="Wood" type="AnimatedSprite2D" parent="main/CanvasLayer/Control"]
+texture_filter = 1
+position = Vector2(37, 28)
+scale = Vector2(1.58449, 1.58449)
+sprite_frames = SubResource("SpriteFrames_85g3d")
+animation = &"wood"
+autoplay = "wood"
 
 [node name="fade" type="Sprite2D" parent="main/CanvasLayer"]
 visible = false
@@ -216,3 +391,9 @@ scale = Vector2(0.0994186, 0.892532)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main/startCamera/Area2D"]
 scale = Vector2(-58.3891, 31.5464)
 shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 0.1, 0, 1)
+energy = 0.7
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.647059)

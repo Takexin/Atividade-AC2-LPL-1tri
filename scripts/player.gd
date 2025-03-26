@@ -60,17 +60,18 @@ func onAnimationEnded(name):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed("actionAttack") and canAttack):
+		canWalk = false
 		attackArea.set_deferred("monitoring", true)
 		await get_tree().create_timer(1).timeout
 		attackArea.set_deferred("monitoring", false)
-		
+		canWalk = true
 	if(event.is_action_pressed("reset")):
 		get_tree().reload_current_scene()
 	
 func _process(delta: float) -> void:
 	if label:
-		label.text = "Madeiras %s"%madeiras
-		label2.text = "Dinheiro %s"%score
+		label.text = "%s"%madeiras
+		label2.text = "%s"%score
 	if rayCast.is_colliding():
 		var body = rayCast.get_collider()
 		if body:
@@ -78,7 +79,7 @@ func _process(delta: float) -> void:
 				#$CollisionShape2D/Sprite2D/Mouse.set_deferred("global_position", body.global_position)
 				$CollisionShape2D/Sprite2D/Mouse.global_position.x = body.global_position.x
 				$CollisionShape2D/Sprite2D/Mouse.visible = true
-				$AnimationPlayer.play("mouse click")
+				$AnimationPlayer2.play("mouse click")
 	else:
 		$CollisionShape2D/Sprite2D/Mouse.visible = false
 	
@@ -91,11 +92,13 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("actionLeft", "actionRight")
 	if direction and canWalk:
+		$AnimationPlayer.play("walk_trisavo")
 		if direction < 0:
 			$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) * -1
 		else:
 			$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL)
+		
 		if scoreNeeded == 0:
 			if SPEED > 0:
 				SPEED -= 1
@@ -104,6 +107,7 @@ func _physics_process(delta: float) -> void: #fisica do spr
 		$CollisionShape2D/Sprite2D.scale.x = abs($CollisionShape2D/Sprite2D.scale.x) * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCEL)
+		$AnimationPlayer.play("idle_trisavo")
 
 	move_and_slide()
 	
