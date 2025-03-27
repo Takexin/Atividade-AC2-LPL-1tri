@@ -12,11 +12,14 @@ var canIdle = true
 var canWalk = false
 var canAttack = false
 var treeDead = false
+var deadAnimationHasPlayed = false
 
 @export var madeiras = 0
 @export var score = 0
 
 signal incorrectAmmount
+signal depositMax
+signal hasDied
 
 @export var scoreNeeded = 150
 
@@ -101,11 +104,13 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if SPEED <= 30:
+	if SPEED <= 50:
 		canWalk = false
 		canIdle= false
 		canAttack = false
-		$AnimationPlayer.call_deferred("play", "dead_trisavo")
+		if !deadAnimationHasPlayed:
+			deadAnimationHasPlayed = true
+			$AnimationPlayer.call_deferred("play", "dead_trisavo")
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -120,7 +125,7 @@ func _physics_process(delta: float) -> void: #fisica do spr
 		
 		if scoreNeeded == 0:
 			if SPEED > 0:
-				isMain.get_node("CanvasLayer").visible = false
+				isMain.get_node("CanvasLayer/Control").visible = false
 				treeDead = true
 				SPEED -= 0.2
 		if !walkSound.playing and isMain:
@@ -187,3 +192,12 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 				SPEED = 150
 				score = abs(scoreNeeded)
 				scoreNeeded=0
+				body.get_parent().depositMax = true
+				body.get_parent().onDepositMax()
+				depositMax.emit()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "dead_trisavo":
+		print("player dieddddddd")
+		hasDied.emit()

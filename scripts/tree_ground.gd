@@ -1,6 +1,6 @@
 extends RigidBody2D
 @onready var treeScene = preload("res://scenes/tree.tscn")
-const TREE_LIMIT = 6
+var TREE_LIMIT = 6
 var currentTrees = 0
 func spawnTree(res):
 	print("spawning process")

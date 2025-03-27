@@ -523,3 +523,4 @@ stream = ExtResource("10_y4r1p")
 
 [connection signal="area_entered" from="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea" to="CharacterBody2D" method="_on_attack_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea" to="CharacterBody2D" method="_on_attack_area_body_entered"]
+[connection signal="animation_finished" from="CharacterBody2D/AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_animation_finished"]

@@ -192,8 +192,8 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 	elif dialogue_line.character == "Luís Cubas":
 		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
 		if not letter in [",", ".", " "]:
-			$stream_tutu.pitch_scale = randf_range(1.00,1.05)
-			$stream_tutu.play()
+			$stream_nicks.pitch_scale = randf_range(1.00,1.05)
+			$stream_nicks.play()
 	elif dialogue_line.character == "Conde da Cunha":
 		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
 		if not letter in [",", ".", " "]:

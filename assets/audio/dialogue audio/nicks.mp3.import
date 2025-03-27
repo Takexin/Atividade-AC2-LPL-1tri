@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co3haiptmh12f"
+path="res://.godot/imported/nicks.mp3-4681ea35c2b6d8828e3b36e81eff863c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/dialogue audio/nicks.mp3"
+dest_files=["res://.godot/imported/nicks.mp3-4681ea35c2b6d8828e3b36e81eff863c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

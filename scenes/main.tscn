@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://blxbaucp10f5n"]
+[gd_scene load_steps=32 format=3 uid="uid://blxbaucp10f5n"]
 
 [ext_resource type="Script" uid="uid://es2vjna43hl" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://h2l21fvvjurn" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://tvs4o4743nen" path="res://scripts/fade.gd" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dg5dq0so5e60d" path="res://scenes/deposit.tscn" id="7_o6xl0"]
+[ext_resource type="Shader" uid="uid://bspn381bw8lqp" path="res://scripts/shader/main.gdshader" id="9_ya4ey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
 font_size = 40
@@ -170,6 +171,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb6dy"]
+shader = ExtResource("9_ya4ey")
+
 [sub_resource type="Animation" id="Animation_tipki"]
 length = 0.001
 tracks/0/type = "value"
@@ -326,6 +330,7 @@ freeze = true
 process_mode = 3
 
 [node name="Control" type="Control" parent="main/CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -378,6 +383,11 @@ z_index = 100
 scale = Vector2(42.2852, -31.2757)
 texture = ExtResource("5_tbgi4")
 script = ExtResource("5_tefeu")
+
+[node name="shaderExample" type="Sprite2D" parent="main/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_eb6dy")
+texture = ExtResource("5_tbgi4")
 
 [node name="Table" parent="main" instance=ExtResource("4_jyhfs")]
 position = Vector2(-934, 241)
