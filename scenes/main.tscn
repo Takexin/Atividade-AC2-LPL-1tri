@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://blxbaucp10f5n"]
+[gd_scene load_steps=30 format=3 uid="uid://blxbaucp10f5n"]
 
+[ext_resource type="Script" uid="uid://es2vjna43hl" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://h2l21fvvjurn" path="res://scenes/player.tscn" id="2_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://js8jaxqgnkqq" path="res://assets/emails/istockphoto-1887333430-640x640 (1).jpg" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://c5tykd15nslbm" path="res://assets/emails/background1.png" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://dd577gle5gkfo" path="res://scenes/tree_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://do6txlp7ifbw6" path="res://assets/emails/coin_spin-Sheet.png" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bsw7tl1pbnvyn" path="res://scenes/table.tscn" id="4_jyhfs"]
@@ -233,7 +234,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2.06667, 3, 4.03333, 5.03333, 6.03333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(339, 61), Vector2(339, 61), Vector2(1700, 61), Vector2(1700, 61), Vector2(-750, 61), Vector2(-750, 61), Vector2(339, 200)]
+"values": [Vector2(339, 61), Vector2(339, 61), Vector2(1700, 61), Vector2(1700, 61), Vector2(-750, 61), Vector2(-750, 61), Vector2(339, 118.71)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -283,6 +284,23 @@ _data = {
 [node name="core" type="Node2D"]
 
 [node name="main" type="Node2D" parent="."]
+script = ExtResource("1_choun")
+
+[node name="Untitled3" type="Sprite2D" parent="main"]
+self_modulate = Color(0.691, 0.729, 0.589, 1)
+z_index = -13
+texture_filter = 1
+position = Vector2(2060, 134)
+scale = Vector2(3.33395, 3.33395)
+texture = ExtResource("3_choun")
+
+[node name="Untitled2" type="Sprite2D" parent="main"]
+self_modulate = Color(0.691, 0.729, 0.589, 1)
+z_index = -13
+texture_filter = 1
+position = Vector2(-1425, 134)
+scale = Vector2(3.33395, 3.33395)
+texture = ExtResource("3_choun")
 
 [node name="treeGround2" parent="main" instance=ExtResource("3_tbgi4")]
 position = Vector2(-2262, 0)
@@ -290,11 +308,12 @@ freeze = true
 script = null
 
 [node name="Untitled" type="Sprite2D" parent="main"]
+self_modulate = Color(0.691, 0.729, 0.589, 1)
 z_index = -13
 texture_filter = 1
-position = Vector2(71, -234)
-scale = Vector2(4.0254, 4.0254)
-texture = ExtResource("3_jyhfs")
+position = Vector2(344, 134)
+scale = Vector2(3.33395, 3.33395)
+texture = ExtResource("3_choun")
 
 [node name="Player" parent="main" instance=ExtResource("2_0wfyh")]
 z_index = 2
@@ -378,12 +397,16 @@ position = Vector2(1734, 243)
 libraries = {
 &"": SubResource("AnimationLibrary_tipki")
 }
-speed_scale = 0.5
+speed_scale = 2.0
 
 [node name="startCamera" type="Camera2D" parent="main"]
 position = Vector2(339, 61)
 process_callback = 0
+limit_left = -1320
+limit_right = 2020
+limit_smoothed = true
 position_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="Area2D" type="Area2D" parent="main/startCamera" groups=["player"]]
 scale = Vector2(0.0994186, 0.892532)

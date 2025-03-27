@@ -13,7 +13,7 @@ func takeDamage():
 	if (HITS >=6):
 		treeBreakSound.play()
 		visible = false
-		tree_died.emit()
+		emit_signal("tree_died")
 		
 	
 

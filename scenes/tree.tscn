@@ -9,7 +9,7 @@ size = Vector2(34, 138)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_viusy"]
 cull_mode = 1
-polygon = PackedVector2Array(101.317, 145.701, 11.6624, 7.63112, 17.1292, 145.701)
+polygon = PackedVector2Array(45.5563, 7.6313, 11.6624, 7.63112, 30.6138, 148.186)
 
 [node name="Tree" type="Node2D"]
 
@@ -35,7 +35,7 @@ volume_db = 2.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
 z_index = -8
-position = Vector2(-3.6445, -135.408)
+position = Vector2(-28.7916, -135.408)
 occluder = SubResource("OccluderPolygon2D_viusy")
 
 [connection signal="finished" from="Area2D/treeBreak" to="Area2D" method="_on_tree_break_finished"]

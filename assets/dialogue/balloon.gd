@@ -185,7 +185,7 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	if dialogue_line.character == "Bras Cubas":
-		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.07
 		if not letter in [",", ".", " "]:
 			$stream_tutu.pitch_scale = randf_range(0.85,0.90)
 			$stream_tutu.play()
@@ -199,6 +199,10 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 		if not letter in [",", ".", " "]:
 			$stream_samis.pitch_scale = randf_range(1.00,1.05)
 			$stream_samis.play()
-	
+	elif dialogue_line.character == "Damião Cubas":
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.06
+		if not letter in [",", ".", " "]:
+			$stream_samis.pitch_scale = randf_range(0.85,0.87)
+			$stream_samis.play()
 	else:
 		$stream_placeholder.play()

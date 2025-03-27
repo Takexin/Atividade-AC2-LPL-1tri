@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnaraiaaegmya"]
+[gd_scene load_steps=13 format=3 uid="uid://dnaraiaaegmya"]
 
 [ext_resource type="Script" uid="uid://dcegcj5qyvcsy" path="res://assets/dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="AudioStream" uid="uid://co61u13o8cphf" path="res://assets/audio/dialogue audio/takis.mp3" id="4_gp408"]
 [ext_resource type="AudioStream" uid="uid://kkijexh0l5hj" path="res://assets/audio/dialogue audio/voice_sans.mp3" id="4_ofehm"]
 [ext_resource type="AudioStream" uid="uid://cv4bu06lb8k8g" path="res://assets/audio/dialogue audio/cunha.mp3" id="5_2g7mb"]
 [ext_resource type="AudioStream" uid="uid://bm6b21tahu0mw" path="res://assets/audio/dialogue audio/tutu.mp3" id="5_nmn4d"]
@@ -163,6 +164,9 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"
+
+[node name="stream_takis" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gp408")
 
 [node name="stream_placeholder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ofehm")
