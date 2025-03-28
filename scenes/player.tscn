@@ -449,7 +449,7 @@ shape = SubResource("CapsuleShape2D_u8vuu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
 texture_filter = 1
-position = Vector2(1.08885, 2.73973)
+position = Vector2(1.08885, 4.45205)
 scale = Vector2(1.2, 1.992)
 texture = ExtResource("2_y4r1p")
 

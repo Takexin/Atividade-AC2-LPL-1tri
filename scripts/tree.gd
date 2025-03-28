@@ -5,14 +5,14 @@ signal tree_died
 
 
 func takeDamage():
-	var previousColor = $Sprite2D.self_modulate
-	$Sprite2D.self_modulate = Color(255,255,255)
+	var previousColor = $"../AnimatedSprite2D".self_modulate
+	$"../AnimatedSprite2D".self_modulate = Color(255,255,255)
 	await get_tree().create_timer(0.1).timeout
-	$Sprite2D.self_modulate = previousColor	
+	$"../AnimatedSprite2D".self_modulate = previousColor	
 	HITS +=1
 	if (HITS >=6):
 		treeBreakSound.play()
-		visible = false
+		get_parent().visible = false
 		emit_signal("tree_died")
 		
 	

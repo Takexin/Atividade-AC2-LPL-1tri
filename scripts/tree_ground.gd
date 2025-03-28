@@ -9,7 +9,7 @@ func spawnTree(res):
 			print("tree spawned")
 			currentTrees+=1
 			var treeInstance = treeScene.instantiate()
-			treeInstance.position.y = $CollisionShape2D.position.y/2
+			treeInstance.position.y = ($CollisionShape2D.position.y/2) + 40
 			treeInstance.position.x = randi_range($CollisionShape2D.position.x - ($CollisionShape2D.shape.size.x*2),$CollisionShape2D.position.x + ($CollisionShape2D.shape.size.x*2))
 			get_parent().call_deferred("add_child", treeInstance)
 			treeInstance.get_child(0).call_deferred("connect", "tree_died", onTreeDeath)

@@ -256,7 +256,7 @@ size = Vector2(521, 154)
 [node name="Table" type="Node2D"]
 script = ExtResource("1_olh0b")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["table"]]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -273,7 +273,7 @@ animation = &"table_cutscene"
 autoplay = "table_cutscene"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D"]
-position = Vector2(0, -1)
+position = Vector2(0, 28)
 occluder = SubResource("OccluderPolygon2D_2f5gb")
 
 [node name="Control" type="Control" parent="."]
@@ -328,8 +328,7 @@ sprite_frames = SubResource("SpriteFrames_xmkwv")
 animation = &"money"
 autoplay = "money"
 
-[node name="Area2D" type="Area2D" parent="."]
-monitorable = false
+[node name="Area2D" type="Area2D" parent="." groups=["table"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 1)

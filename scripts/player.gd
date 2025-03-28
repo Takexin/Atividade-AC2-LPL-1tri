@@ -12,7 +12,8 @@ var canIdle = true
 var canWalk = false
 var canAttack = false
 var treeDead = false
-var deadAnimationHasPlayed = false
+var deadAnimationHasPlayed = false 
+var currentCutscene = 0 #cutscene controller
 
 @export var madeiras = 0
 @export var score = 0
@@ -20,6 +21,7 @@ var deadAnimationHasPlayed = false
 signal incorrectAmmount
 signal depositMax
 signal hasDied
+signal sceneFinished
 
 @export var scoreNeeded = 150
 
@@ -56,17 +58,19 @@ func _ready() -> void:
 		canWalk = true
 		canAttack = true
 		$Camera2D.enabled = true
-var hasRun = false
+
 func onDialogueEnded(resource):
-	if !hasRun:
-		hasRun = true
+	if currentCutscene == 0:
+		currentCutscene +=1
 		if fade:
 			fade.fadeTrigger = true
 			await get_tree().create_timer(1).timeout
 			DialogueManager.show_dialogue_balloon(dialogue, "comeco")
-	else:
+	elif currentCutscene == 1:
 		if fade:
 			get_tree().root.get_node("core/main/AnimationPlayer").play("start")
+	elif currentCutscene ==2:
+		sceneFinished.emit()
 
 func onAnimationEnded(name):
 	$Camera2D.enabled = true
@@ -142,6 +146,14 @@ func _physics_process(delta: float) -> void: #fisica do spr
 
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("table"):
+		if (madeiras >= 3):
+			scoreSound.play(2)
+			madeiras -=3
+			score+= randi_range(23,33)
+		else:
+			wrongSound.play()
+			incorrectAmmount.emit(1)
 	if(area.is_in_group("tree")):
 		var treeHits = area.HITS
 		canAttack = false
@@ -164,14 +176,7 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 		treeDead = false
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	attackArea.set_deferred("monitoring", false)
-	if body.is_in_group("table"):
-		if (madeiras >= 3):
-			scoreSound.play(2)
-			madeiras -=3
-			score+= randi_range(23,33)
-		else:
-			wrongSound.play()
-			incorrectAmmount.emit(1)
+	
 	if body.is_in_group("deposit"):
 		if score == 0:
 			wrongSound.play()
@@ -199,5 +204,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "dead_trisavo":
-		print("player dieddddddd")
 		hasDied.emit()
+		await get_tree().create_timer(3).timeout
+		DialogueManager.show_dialogue_balloon(dialogue, "morte")
+		currentCutscene = 2

@@ -1,17 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://lprdkbhau637"]
+[gd_scene load_steps=12 format=3 uid="uid://lprdkbhau637"]
 
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="1_avsvi"]
 [ext_resource type="Script" uid="uid://c3i6a80ixiqsk" path="res://scripts/tree.gd" id="1_vplca"]
 [ext_resource type="AudioStream" uid="uid://ledswef7kb3l" path="res://assets/audio/tree_break.mp3" id="3_viusy"]
+[ext_resource type="Texture2D" uid="uid://cum2a2eijtn1u" path="res://assets/emails/pine_tree-Sheet.png" id="4_qd6xs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ake3r"]
+atlas = ExtResource("4_qd6xs")
+region = Rect2(0, 0, 70, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18mvg"]
+atlas = ExtResource("4_qd6xs")
+region = Rect2(70, 0, 70, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmmp0"]
+atlas = ExtResource("4_qd6xs")
+region = Rect2(140, 0, 70, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26wl"]
+atlas = ExtResource("4_qd6xs")
+region = Rect2(210, 0, 70, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yujg"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ake3r")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_18mvg")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_dmmp0")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_m26wl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ict6q"]
 size = Vector2(34, 138)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_viusy"]
 cull_mode = 1
-polygon = PackedVector2Array(45.5563, 7.6313, 11.6624, 7.63112, 30.6138, 148.186)
+polygon = PackedVector2Array(-17.4936, 8.34098, -40.4539, 8.87357, -17.4936, 102.576)
 
 [node name="Tree" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-13, -281)
+scale = Vector2(6.79468, 6.79468)
+sprite_frames = SubResource("SpriteFrames_5yujg")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." groups=["tree"]]
 scale = Vector2(2.74386, 5.63483)
@@ -23,6 +68,7 @@ position = Vector2(0, -59)
 shape = SubResource("RectangleShape2D_ict6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
 self_modulate = Color(0.451632, 0.26463, 0, 1)
 texture_filter = 1
 position = Vector2(1, -59)
@@ -35,7 +81,7 @@ volume_db = 2.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
 z_index = -8
-position = Vector2(-28.7916, -135.408)
+position = Vector2(26.6049, -26.7976)
 occluder = SubResource("OccluderPolygon2D_viusy")
 
 [connection signal="finished" from="Area2D/treeBreak" to="Area2D" method="_on_tree_break_finished"]
