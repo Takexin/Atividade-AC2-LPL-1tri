@@ -18,17 +18,17 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
 radius = 15.8972
-height = 76.7123
+height = 73.2877
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(46.9606, 291.814)
+size = Vector2(169.75, 291.814)
 
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D/Mouse:frame")
+tracks/0/path = NodePath("CanvasLayer/Mouse:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -345,7 +345,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D/Mouse:frame")
+tracks/0/path = NodePath("CanvasLayer/Mouse:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -458,17 +458,9 @@ scale = Vector2(0.14967, 0.14967)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea"]
-position = Vector2(96.5573, -5.08431)
+position = Vector2(35.1625, -5.08431)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g2els")
-
-[node name="Mouse" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
-self_modulate = Color(1, 1, 1, 0.619)
-texture_filter = 1
-position = Vector2(17.966, -17.192)
-scale = Vector2(0.61402, 0.683606)
-texture = ExtResource("3_qhqgy")
-hframes = 2
-frame = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D/CollisionShape2D/Sprite2D"]
 position = Vector2(-5.37701, 1.01686)
@@ -520,6 +512,16 @@ stream = ExtResource("9_ur7pv")
 
 [node name="incorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_y4r1p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Mouse" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(1083, 576)
+scale = Vector2(3.3835, 3.97629)
+texture = ExtResource("3_qhqgy")
+hframes = 2
+frame = 1
 
 [connection signal="area_entered" from="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea" to="CharacterBody2D" method="_on_attack_area_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/CollisionShape2D/Sprite2D/attackArea" to="CharacterBody2D" method="_on_attack_area_body_entered"]

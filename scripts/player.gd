@@ -42,6 +42,7 @@ signal sceneFinished
 @onready var rayCast = $CollisionShape2D/Sprite2D/RayCast2D
 @onready var isMain = get_tree().root.get_node("core/main")
 @onready var camera = $Camera2D
+@onready var mouseSprite = $"../CanvasLayer/Mouse"
 func animacao_texto():
 	var subtexto
 
@@ -95,14 +96,14 @@ func _process(delta: float) -> void:
 		if body:
 			if body.is_in_group("tree") and treeDead == false:
 				#$CollisionShape2D/Sprite2D/Mouse.set_deferred("global_position", body.global_position)
-				$CollisionShape2D/Sprite2D/Mouse.global_position.x = body.global_position.x
-				$CollisionShape2D/Sprite2D/Mouse.visible = true
+				#$CollisionShape2D/Sprite2D/Mouse.global_position.x = body.global_position.x
+				mouseSprite.visible = true
 				$AnimationPlayer2.play("mouse click")
 			else:
-				$CollisionShape2D/Sprite2D/Mouse.visible = false
+				mouseSprite.visible = false
 	
 	else:
-		$CollisionShape2D/Sprite2D/Mouse.visible = false
+		mouseSprite.visible = false
 	
 func _physics_process(delta: float) -> void: #fisica do spr
 	# Add the gravity.
@@ -121,10 +122,10 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	var direction := Input.get_axis("actionLeft", "actionRight")
 	if direction and canWalk:
 		$AnimationPlayer.play("walk_trisavo")
-		if direction < 0:
-			$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) * -1
-		else:
-			$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) 
+		#if direction < 0:
+		#	$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) * -1
+		#else:
+		#	$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) 
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL)
 		
 		if scoreNeeded == 0:
