@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://dg5dq0so5e60d"]
+[gd_scene load_steps=72 format=3 uid="uid://dg5dq0so5e60d"]
 
 [ext_resource type="Script" uid="uid://cv4x4hffpglg" path="res://scripts/deposit.gd" id="1_iv2y1"]
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="2_6tid1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dcchhd2d5qxgo" path="res://assets/emails/wood-Sheet.png" id="4_6tid1"]
 [ext_resource type="Texture2D" uid="uid://cev4uvxk6h5bv" path="res://assets/emails/bau_cheio-Sheet.png" id="4_7snlp"]
 [ext_resource type="Texture2D" uid="uid://cj1cvwkarn3jg" path="res://assets/emails/bau_idle-Sheet.png" id="5_6buej"]
+[ext_resource type="AudioStream" uid="uid://c0fdb8vso5ih5" path="res://assets/audio/chest_close.mp3" id="8_7snlp"]
+[ext_resource type="AudioStream" uid="uid://csrltlxgaiylo" path="res://assets/audio/chest_open.mp3" id="9_6buej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gu86w"]
 size = Vector2(35.4961, 20)
@@ -447,13 +449,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8522"]
 size = Vector2(521, 154)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7snlp"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("8_7snlp")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y56wd"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("9_6buej")
+
 [node name="deposit" type="Node2D"]
 script = ExtResource("1_iv2y1")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["deposit"]]
 gravity_scale = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" groups=["deposit"]]
 position = Vector2(-9.99999, 0)
 scale = Vector2(8.05723, 8.05723)
 shape = SubResource("RectangleShape2D_gu86w")
@@ -509,12 +521,19 @@ sprite_frames = SubResource("SpriteFrames_ru4xb")
 animation = &"money"
 autoplay = "money"
 
-[node name="Area2D" type="Area2D" parent="."]
-monitorable = false
+[node name="Area2D" type="Area2D" parent="." groups=["deposit"]]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_x8522")
+
+[node name="chestClose" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_7snlp")
+
+[node name="chest" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_y56wd")
+volume_db = -3.0
 
 [connection signal="animation_finished" from="RigidBody2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

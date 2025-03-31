@@ -10,7 +10,8 @@ func _ready() -> void:
 func onFirstSceneFinished():
 	swapScene(scene2)
 func swapScene(scene) -> void:
-	currentScene.call_deferred("queue_free")
+	currentScene.queue_free()
 	var sceneInstance = scene.instantiate()
-	self.add_child(sceneInstance)
+	await currentScene.tree_exited
+	call_deferred("add_child", sceneInstance)
 	currentScene = sceneInstance

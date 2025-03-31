@@ -43,11 +43,11 @@ signal sceneFinished
 @onready var isMain = get_tree().root.get_node("core/main")
 @onready var camera = $Camera2D
 @onready var mouseSprite = $"../CanvasLayer/Mouse"
-func animacao_texto():
-	var subtexto
+@onready var grassSound = $"../ambient_grass"
 
 func _ready() -> void:
 	if isMain:
+		grassSound.play()
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
 		DialogueManager.connect("dialogue_ended", onDialogueEnded)
 		var animationPlayer = get_tree().root.get_node("core/main/AnimationPlayer")
@@ -59,19 +59,21 @@ func _ready() -> void:
 		canWalk = true
 		canAttack = true
 		$Camera2D.enabled = true
+		#grassSound.play()
 
 func onDialogueEnded(resource):
-	if currentCutscene == 0:
-		currentCutscene +=1
-		if fade:
-			fade.fadeTrigger = true
-			await get_tree().create_timer(1).timeout
-			DialogueManager.show_dialogue_balloon(dialogue, "comeco")
-	elif currentCutscene == 1:
-		if fade:
-			get_tree().root.get_node("core/main/AnimationPlayer").play("start")
-	elif currentCutscene ==2:
-		sceneFinished.emit()
+	if isMain:
+		if currentCutscene == 0:
+			currentCutscene +=1
+			if fade:
+				fade.fadeTrigger = true
+				await get_tree().create_timer(1).timeout
+				DialogueManager.show_dialogue_balloon(dialogue, "comeco")
+		elif currentCutscene == 1:
+			if fade:
+				get_tree().root.get_node("core/main/AnimationPlayer").play("start")
+		elif currentCutscene ==2:
+			sceneFinished.emit()
 
 func onAnimationEnded(name):
 	$Camera2D.enabled = true
@@ -94,12 +96,13 @@ func _process(delta: float) -> void:
 	if rayCast.is_colliding():
 		var body = rayCast.get_collider()
 		if body:
-			if body.is_in_group("tree") and treeDead == false:
+			if (body.is_in_group("tree") or body.is_in_group("table") or body.is_in_group("deposit")) and treeDead == false and canWalk:
 				#$CollisionShape2D/Sprite2D/Mouse.set_deferred("global_position", body.global_position)
 				#$CollisionShape2D/Sprite2D/Mouse.global_position.x = body.global_position.x
 				mouseSprite.visible = true
 				$AnimationPlayer2.play("mouse click")
 			else:
+				
 				mouseSprite.visible = false
 	
 	else:
@@ -205,6 +208,8 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "dead_trisavo":
+		heartSound.playing = false
+		grassSound.playing = false
 		hasDied.emit()
 		await get_tree().create_timer(3).timeout
 		DialogueManager.show_dialogue_balloon(dialogue, "morte")

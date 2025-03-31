@@ -4,6 +4,8 @@ var capturedPlayer = false
 var depositMax = false
 @onready var depositLabel = $Control/Dialogue/Label
 @onready var self_sprite = $RigidBody2D/AnimatedSprite2D
+@onready var chestSound = $chest
+@onready var chestCloseSound = $chestClose
 @onready var player = get_tree().root.get_node("core/main/Player/CharacterBody2D")
 var incorrected = false
 
@@ -37,10 +39,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("player")):
 		capturedPlayer = true
 		self_sprite.play("deposit_abrir")
+		chestSound.play()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	capturedPlayer = false
 	if !depositMax:
+		chestCloseSound.play(0.2)
 		self_sprite.play("deposit_fechar")
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("player")):
