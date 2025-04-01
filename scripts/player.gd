@@ -17,13 +17,16 @@ var currentCutscene = 0 #cutscene controller
 
 @export var madeiras = 0
 @export var score = 0
+@export var scoreNeeded = 150
+@export_enum("trisavo", "luis") var currentPlayer : int
+
 
 signal incorrectAmmount
 signal depositMax
 signal hasDied
 signal sceneFinished
 
-@export var scoreNeeded = 150
+
 
 @onready var walkSound = $"../walk"
 @onready var axeSound = $"../axe"
@@ -41,17 +44,21 @@ signal sceneFinished
 @onready var attackArea = $CollisionShape2D/Sprite2D/attackArea
 @onready var rayCast = $CollisionShape2D/Sprite2D/RayCast2D
 
+
 @onready var isMain = get_tree().root.get_node("core/main")
 @onready var isMain2 = get_tree().root.get_node("core/main2")
 
-@onready var camera = $Camera2D
+@onready var currentMainScene = get_tree().root.get_child(2)
+@onready var camera = $camera_scene1
 @onready var mouseSprite = $"../CanvasLayer/Mouse"
 @onready var grassSound = $"../ambient_grass"
 
 
 
 func _ready() -> void:
-	if isMain:
+	print(get_tree().root.get_child(2).name)
+	print(currentPlayer)
+	if currentMainScene.name.to_lower() == "main" or currentMainScene.get_child(0).name == "main":
 		grassSound.play()
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
 		DialogueManager.connect("dialogue_ended", onDialogueEnded)
@@ -60,12 +67,25 @@ func _ready() -> void:
 		var startCamera = isMain.get_node("startCamera")
 		camera.limit_left = startCamera.limit_left
 		camera.limit_right = startCamera.limit_right
-	elif isMain2:
-		pass
+		
+		
+	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name == "main2":
+		print("is in main 22222222")
+		
+		
+		canWalk = true
+		canAttack = true
+		camera.enabled = true
+		#camera.limit_top = -105
+		camera.limit_right = 3500
+		camera.limit_left = 135
+		#camera.limit_top = -105
+		camera.limit_bottom = 570
+		camera.zoom = Vector2(1.1,1.1)
 	else:
 		canWalk = true
 		canAttack = true
-		$Camera2D.enabled = true
+		camera.enabled = true
 		#grassSound.play()
 
 func onDialogueEnded(resource):
@@ -83,7 +103,7 @@ func onDialogueEnded(resource):
 			sceneFinished.emit()
 
 func onAnimationEnded(name):
-	$Camera2D.enabled = true
+	camera.enabled = true
 	canWalk = true
 	canAttack = true
 
@@ -131,11 +151,11 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("actionLeft", "actionRight")
 	if direction and canWalk:
-		$AnimationPlayer.play("walk_trisavo")
-		#if direction < 0:
-		#	$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) * -1
-		#else:
-		#	$CollisionShape2D/Sprite2D/Mouse.scale.x = abs($CollisionShape2D/Sprite2D/Mouse.scale.x) 
+		if currentPlayer == 0:
+			$AnimationPlayer.play("walk_trisavo")
+		elif currentPlayer == 1:
+			$AnimationPlayer.play("walk_luis")
+		
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL)
 		
 		if scoreNeeded == 0:
@@ -150,7 +170,10 @@ func _physics_process(delta: float) -> void: #fisica do spr
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCEL)
 		if canIdle:
-			$AnimationPlayer.play("idle_trisavo")
+			if currentPlayer == 0:
+				$AnimationPlayer.play("idle_trisavo")
+			elif currentPlayer == 1:
+				$AnimationPlayer.play("idle_luis")
 
 	move_and_slide()
 	

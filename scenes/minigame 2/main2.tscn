@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ym6726jgqbmu"]
+[gd_scene load_steps=23 format=3 uid="uid://ym6726jgqbmu"]
 
 [ext_resource type="Script" uid="uid://caevn5rowm153" path="res://scripts/main_2.gd" id="1_7d6dd"]
 [ext_resource type="PackedScene" uid="uid://wsed14y5j3p4" path="res://scenes/playerCutscene.tscn" id="3_i8xl7"]
 [ext_resource type="Texture2D" uid="uid://c3p8dy84ysrpa" path="res://assets/emails/minigame 2/salao.png" id="4_1fe40"]
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="4_1wwep"]
+[ext_resource type="Texture2D" uid="uid://dg4jm6d4likm0" path="res://assets/emails/minigame 2/conde_dacunha_levantando-Sheet.png" id="5_1fe40"]
+[ext_resource type="Script" uid="uid://bxgjom0wbmsdu" path="res://scripts/conde_cadeira.gd" id="6_dvahy"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_c24jh"]
 a = Vector2(10000, 0)
@@ -26,79 +28,79 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterBody2D:isWalking")
+tracks/1/path = NodePath("cutsceneCamera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(632, 321)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CharacterBody2D:isIdle")
+tracks/2/path = NodePath("cutsceneCamera:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("cutsceneCamera:position")
+tracks/3/path = NodePath("CanvasLayer/Sprite2D:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(632, 321)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("cutsceneCamera:zoom")
+tracks/4/path = NodePath("CanvasLayer/Sprite2D:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Sprite2D:self_modulate")
+tracks/5/path = NodePath("conde_cadeira:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/6/path = NodePath("CharacterBody2D:currentState")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_7d6dd"]
 resource_name = "start_anim"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -114,74 +116,74 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterBody2D:isWalking")
+tracks/1/path = NodePath("cutsceneCamera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 2.93333, 4.2, 5.6, 9.2, 10.5),
+"transitions": PackedFloat32Array(1, 2.73208, 2.73208, 1, 1, 3.86374),
+"update": 0,
+"values": [Vector2(668.46, 250), Vector2(1000, 250), Vector2(1000, 250), Vector2(2850, 250), Vector2(2850, 250), Vector2(1000, 250)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CharacterBody2D:isIdle")
-tracks/2/interp = 1
+tracks/2/path = NodePath("cutsceneCamera:zoom")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("cutsceneCamera:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.93333, 4.2, 5.6),
-"transitions": PackedFloat32Array(1, 2.73208, 2.73208, 1),
-"update": 0,
-"values": [Vector2(668.46, 250), Vector2(1000, 250), Vector2(1000, 250), Vector2(2850, 250)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("cutsceneCamera:zoom")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 2.9794),
 "transitions": PackedFloat32Array(1, 3.13834),
 "update": 0,
 "values": [Vector2(1.3, 1.3), Vector2(1.1, 1.1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Sprite2D:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Sprite2D:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("conde_cadeira:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CharacterBody2D:currentState")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8xl7"]
@@ -190,14 +192,120 @@ _data = {
 &"start_anim": SubResource("Animation_7d6dd")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvahy"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y76hm"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt7hg"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnuwg"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8q5w"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkuk5"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7300j"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agldf"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgnjs"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s27kn"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ank"]
+atlas = ExtResource("5_1fe40")
+region = Rect2(800, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrykl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvahy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y76hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt7hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnuwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8q5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkuk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7300j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agldf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgnjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s27kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37ank")
+}],
+"loop": false,
+"name": &"conde_cadeira",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main2" type="Node2D"]
 script = ExtResource("1_7d6dd")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(521, 547)
+position = Vector2(521, 516)
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("SegmentShape2D_c24jh")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(22, 375)
+rotation = 1.5708
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("SegmentShape2D_c24jh")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(3640, 375)
+rotation = 1.5708
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
 shape = SubResource("SegmentShape2D_c24jh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -210,7 +318,13 @@ position = Vector2(78, 415)
 
 [node name="cutsceneCamera" type="Camera2D" parent="."]
 position = Vector2(632, 321)
+limit_left = 135
+limit_top = -105
+limit_right = 3500
+limit_bottom = 570
+limit_smoothed = true
 position_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="Salao" type="Sprite2D" parent="."]
 z_index = -3
@@ -226,3 +340,16 @@ visible = false
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(30.137, 30.137)
 texture = ExtResource("4_1wwep")
+
+[node name="conde_cadeira" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2870, 293)
+scale = Vector2(6.72, 6.72)
+sprite_frames = SubResource("SpriteFrames_yrykl")
+animation = &"conde_cadeira"
+frame = 3
+frame_progress = 0.608123
+script = ExtResource("6_dvahy")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="conde_cadeira" to="conde_cadeira" method="_on_animation_finished"]

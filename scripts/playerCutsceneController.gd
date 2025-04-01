@@ -1,13 +1,13 @@
 extends CharacterBody2D
 @onready var animation = $AnimationPlayer
-@export var isWalking = false
-@export var isIdle = false
+
+@export_enum("isWalking", "isIdle") var currentState : int
 
 func _process(delta: float) -> void:
-	if isWalking:
-		animation.play("walk_trisavo")
-	elif isIdle:
-		animation.play("idle_trisavo")
+	if currentState == 0:
+		animation.play("walk_luis")
+	elif currentState == 1:
+		animation.play("idle_luis")
 		
 		
 func _physics_process(delta: float) -> void:
