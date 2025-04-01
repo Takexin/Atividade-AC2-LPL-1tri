@@ -40,10 +40,15 @@ signal sceneFinished
 @onready var dialogue = load("res://assets/dialogue/main.dialogue")
 @onready var attackArea = $CollisionShape2D/Sprite2D/attackArea
 @onready var rayCast = $CollisionShape2D/Sprite2D/RayCast2D
+
 @onready var isMain = get_tree().root.get_node("core/main")
+@onready var isMain2 = get_tree().root.get_node("core/main2")
+
 @onready var camera = $Camera2D
 @onready var mouseSprite = $"../CanvasLayer/Mouse"
 @onready var grassSound = $"../ambient_grass"
+
+
 
 func _ready() -> void:
 	if isMain:
@@ -55,6 +60,8 @@ func _ready() -> void:
 		var startCamera = isMain.get_node("startCamera")
 		camera.limit_left = startCamera.limit_left
 		camera.limit_right = startCamera.limit_right
+	elif isMain2:
+		pass
 	else:
 		canWalk = true
 		canAttack = true
