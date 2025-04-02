@@ -71,7 +71,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -336,9 +336,9 @@ texture = ExtResource("4_1fe40")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(30.137, 30.137)
+position = Vector2(1311.62, 0)
+scale = Vector2(50.631, 30.137)
 texture = ExtResource("4_1wwep")
 
 [node name="conde_cadeira" type="AnimatedSprite2D" parent="."]
@@ -347,8 +347,6 @@ position = Vector2(2870, 293)
 scale = Vector2(6.72, 6.72)
 sprite_frames = SubResource("SpriteFrames_yrykl")
 animation = &"conde_cadeira"
-frame = 3
-frame_progress = 0.608123
 script = ExtResource("6_dvahy")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

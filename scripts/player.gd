@@ -80,7 +80,7 @@ func _ready() -> void:
 		camera.limit_right = 3500
 		camera.limit_left = 135
 		#camera.limit_top = -105
-		camera.limit_bottom = 570
+		camera.limit_bottom = 540
 		camera.zoom = Vector2(1.1,1.1)
 	else:
 		canWalk = true
@@ -100,6 +100,7 @@ func onDialogueEnded(resource):
 			if fade:
 				get_tree().root.get_node("core/main/AnimationPlayer").play("start")
 		elif currentCutscene ==2:
+			await get_tree().create_timer(2).timeout
 			sceneFinished.emit()
 
 func onAnimationEnded(name):

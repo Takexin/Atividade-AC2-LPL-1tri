@@ -611,6 +611,7 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_qlg0r")
 }
+autoplay = "walk_luis"
 
 [node name="camera_scene1" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -32.1918)
