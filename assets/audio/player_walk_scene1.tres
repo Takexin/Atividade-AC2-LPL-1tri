@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://c7f6scfdepxh7"]
+
+[ext_resource type="AudioStream" uid="uid://dhprroogjxbp6" path="res://assets/audio/walk1.mp3" id="1_v4tuc"]
+[ext_resource type="AudioStream" uid="uid://bpsi2124gdml6" path="res://assets/audio/walk2.mp3" id="2_4sg8o"]
+[ext_resource type="AudioStream" uid="uid://q4of0dw5tcn2" path="res://assets/audio/walk3.mp3" id="3_cn1ot"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_v4tuc")
+stream_1/stream = ExtResource("2_4sg8o")
+stream_2/stream = ExtResource("3_cn1ot")

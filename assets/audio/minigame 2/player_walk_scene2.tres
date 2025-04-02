@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://cj4kxfb0wfik4"]
+
+[ext_resource type="AudioStream" uid="uid://bm0r8chy8riu1" path="res://assets/audio/minigame 2/piso_walk1.mp3" id="1_knkwl"]
+[ext_resource type="AudioStream" uid="uid://dotkow6vqhprq" path="res://assets/audio/minigame 2/piso_walk2.mp3" id="2_g3o4j"]
+[ext_resource type="AudioStream" uid="uid://drynumt48sc3t" path="res://assets/audio/minigame 2/piso_walk3.mp3" id="3_1ikey"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_knkwl")
+stream_1/stream = ExtResource("2_g3o4j")
+stream_2/stream = ExtResource("3_1ikey")

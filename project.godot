@@ -38,6 +38,7 @@ tree="group for the tree object"
 table="group for crafting table "
 player=""
 deposit=""
+conde=""
 
 [gui]
 

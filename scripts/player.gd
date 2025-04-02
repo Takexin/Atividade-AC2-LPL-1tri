@@ -14,6 +14,8 @@ var canAttack = false
 var treeDead = false
 var deadAnimationHasPlayed = false 
 var currentCutscene = 0 #cutscene controller
+var failedDialogue = false
+
 
 @export var madeiras = 0
 @export var score = 0
@@ -27,7 +29,7 @@ signal hasDied
 signal sceneFinished
 
 
-
+#sound imports
 @onready var walkSound = $"../walk"
 @onready var axeSound = $"../axe"
 @onready var scoreSound = $"../getScore"
@@ -36,11 +38,15 @@ signal sceneFinished
 @onready var wrongSound = $"../incorrect"
 @onready var droneSound = $"../drone"
 @onready var heartSound = $"../heartbeat"
+@onready var grassSound = $"../ambient_grass"
+@onready var peopleSound = $"../ambient_people"
+
 
 @onready var label = get_tree().root.get_node("core/main/CanvasLayer/Control/Label")
 @onready var label2 = get_tree().root.get_node("core/main/CanvasLayer/Control/Label2")
 @onready var fade = get_tree().root.get_node("core/main/CanvasLayer/fade")
 @onready var dialogue = load("res://assets/dialogue/main.dialogue")
+@onready var dialogue2 = load("res://assets/dialogue/main2.dialogue")
 @onready var attackArea = $CollisionShape2D/Sprite2D/attackArea
 @onready var rayCast = $CollisionShape2D/Sprite2D/RayCast2D
 
@@ -51,10 +57,10 @@ signal sceneFinished
 @onready var currentMainScene = get_tree().root.get_child(2)
 @onready var camera = $camera_scene1
 @onready var mouseSprite = $"../CanvasLayer/Mouse"
-@onready var grassSound = $"../ambient_grass"
 
 
 
+var direction := Input.get_axis("actionLeft", "actionRight")
 func _ready() -> void:
 	print(currentMainScene.get_child(0).name)
 	print(currentPlayer)
@@ -70,9 +76,7 @@ func _ready() -> void:
 		
 		
 	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name.to_lower() == "main2":
-		print("is in main 22222222")
-		
-		
+		DialogueManager.connect("dialogue_ended", onDialogue2Ended)
 		canWalk = true
 		canAttack = true
 		camera.enabled = true
@@ -102,6 +106,12 @@ func onDialogueEnded(resource):
 		elif currentCutscene ==2:
 			await get_tree().create_timer(2).timeout
 			sceneFinished.emit()
+	
+func onDialogue2Ended(res):
+	print("dialogue ended")
+	if failedDialogue:
+		print("dialogue failed")
+
 
 func onAnimationEnded(name):
 	camera.enabled = true
@@ -124,13 +134,12 @@ func _process(delta: float) -> void:
 	if rayCast.is_colliding():
 		var body = rayCast.get_collider()
 		if body:
-			if (body.is_in_group("tree") or body.is_in_group("table") or body.is_in_group("deposit")) and treeDead == false and canWalk:
+			if (body.is_in_group("tree") or body.is_in_group("table") or body.is_in_group("deposit") or body.is_in_group("conde")) and treeDead == false and canWalk:
 				#$CollisionShape2D/Sprite2D/Mouse.set_deferred("global_position", body.global_position)
 				#$CollisionShape2D/Sprite2D/Mouse.global_position.x = body.global_position.x
 				mouseSprite.visible = true
 				$AnimationPlayer2.play("mouse click")
 			else:
-				
 				mouseSprite.visible = false
 	
 	else:
@@ -150,7 +159,7 @@ func _physics_process(delta: float) -> void: #fisica do spr
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("actionLeft", "actionRight")
+	direction = Input.get_axis("actionLeft", "actionRight")
 	if direction and canWalk:
 		if currentPlayer == 0:
 			$AnimationPlayer.play("walk_trisavo")
@@ -164,9 +173,6 @@ func _physics_process(delta: float) -> void: #fisica do spr
 				isMain.get_node("CanvasLayer/Control").visible = false
 				treeDead = true
 				SPEED -= 0.2
-		if !walkSound.playing and isMain:
-			walkSound.play()
-		
 		$CollisionShape2D/Sprite2D.scale.x = abs($CollisionShape2D/Sprite2D.scale.x) * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCEL)
@@ -235,6 +241,8 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 				body.get_parent().depositMax = true
 				body.get_parent().onDepositMax()
 				depositMax.emit()
+	elif body.is_in_group("conde"):
+		DialogueManager.show_dialogue_balloon(dialogue2, "start")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -243,5 +251,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		grassSound.playing = false
 		hasDied.emit()
 		await get_tree().create_timer(3).timeout
-		DialogueManager.show_dialogue_balloon(dialogue, "morte")
+		DialogueManager.show_dialogue_balloon(dialogue, "morte", [self])
 		currentCutscene = 2

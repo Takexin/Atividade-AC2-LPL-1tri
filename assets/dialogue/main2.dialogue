@@ -1,3 +1,8 @@
+~ firstDialogue
+Luís Cubas: Ali está, Conde da Cunha, o vice-rei.
+Luís Cubas: Preciso falar com ele.
+=> END
+
 ~ start
 Luís Cubas: Vossa Excelência é a estrela que guia esta colônia! 
 Luís Cubas: Sem sua liderança, estaríamos à deriva!
@@ -20,6 +25,7 @@ Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
 	
 	Conde da Cunha: Hah! Então és um homem que sabe onde colocar suas moedas. Gostei de você.
 - O Brasil precisa de mais autonomia para crescer de verdade
+	set self.failedDialogue = true
 	Conde da Cunha: Está sugerindo que devemos contrariar a Coroa?
 	
 	Luís Cubas: De forma alguma!

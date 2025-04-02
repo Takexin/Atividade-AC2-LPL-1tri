@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dotkow6vqhprq"
+path="res://.godot/imported/piso_walk2.mp3-3cc1a2bae2656071fcbe573f2aa27a4d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/minigame 2/piso_walk2.mp3"
+dest_files=["res://.godot/imported/piso_walk2.mp3-3cc1a2bae2656071fcbe573f2aa27a4d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

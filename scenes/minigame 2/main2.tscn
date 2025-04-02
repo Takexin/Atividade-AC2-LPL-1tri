@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ym6726jgqbmu"]
+[gd_scene load_steps=33 format=3 uid="uid://ym6726jgqbmu"]
 
 [ext_resource type="Script" uid="uid://caevn5rowm153" path="res://scripts/main_2.gd" id="1_7d6dd"]
 [ext_resource type="PackedScene" uid="uid://wsed14y5j3p4" path="res://scenes/playerCutscene.tscn" id="3_i8xl7"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="4_1wwep"]
 [ext_resource type="Texture2D" uid="uid://dg4jm6d4likm0" path="res://assets/emails/minigame 2/conde_dacunha_levantando-Sheet.png" id="5_1fe40"]
 [ext_resource type="Script" uid="uid://bxgjom0wbmsdu" path="res://scripts/conde_cadeira.gd" id="6_dvahy"]
+[ext_resource type="AudioStream" uid="uid://djhm1bv6t1rr3" path="res://assets/audio/minigame 2/LetMeCook.mp3" id="7_kt7hg"]
+[ext_resource type="AudioStream" uid="uid://brbjo43swonnq" path="res://assets/audio/minigame 2/PessoasFalandoFundo.mp3" id="7_y76hm"]
+[ext_resource type="AudioStream" uid="uid://coud3v7tqk13q" path="res://assets/audio/minigame 2/conde_cadeira1.mp3" id="8_nnuwg"]
+[ext_resource type="Texture2D" uid="uid://dnwau5rvn2813" path="res://assets/emails/minigame 2/pessoas_fundo-Sheet.png" id="10_m8q5w"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_c24jh"]
 a = Vector2(10000, 0)
@@ -239,73 +243,123 @@ region = Rect2(800, 0, 80, 80)
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrykl"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.08,
 "texture": SubResource("AtlasTexture_dvahy")
 }, {
-"duration": 1.0,
+"duration": 0.08,
 "texture": SubResource("AtlasTexture_y76hm")
 }, {
-"duration": 1.0,
+"duration": 0.08,
 "texture": SubResource("AtlasTexture_kt7hg")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nnuwg")
 }, {
-"duration": 1.0,
+"duration": 0.08,
 "texture": SubResource("AtlasTexture_m8q5w")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_kkuk5")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_7300j")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_agldf")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_wgnjs")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_s27kn")
 }, {
-"duration": 1.0,
+"duration": 0.04,
 "texture": SubResource("AtlasTexture_37ank")
 }],
 "loop": false,
 "name": &"conde_cadeira",
-"speed": 30.0
+"speed": 1.0
 }, {
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrykl"]
+atlas = ExtResource("10_m8q5w")
+region = Rect2(0, 0, 250, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ps14"]
+atlas = ExtResource("10_m8q5w")
+region = Rect2(250, 0, 250, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7j8c"]
+atlas = ExtResource("10_m8q5w")
+region = Rect2(500, 0, 250, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn17v"]
+atlas = ExtResource("10_m8q5w")
+region = Rect2(750, 0, 250, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enge1"]
+atlas = ExtResource("10_m8q5w")
+region = Rect2(1000, 0, 250, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnuwg"]
+animations = [{
 "frames": [],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yrykl")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5ps14")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_v7j8c")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fn17v")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_enge1")
+}],
+"loop": true,
+"name": &"pessoas_fundo",
+"speed": 1.0
 }]
 
 [node name="Main2" type="Node2D"]
 script = ExtResource("1_7d6dd")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="sceneBarriers" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="sceneBarriers"]
 position = Vector2(521, 516)
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceneBarriers/RigidBody2D"]
 shape = SubResource("SegmentShape2D_c24jh")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+[node name="RigidBody2D2" type="RigidBody2D" parent="sceneBarriers"]
 position = Vector2(22, 375)
 rotation = 1.5708
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceneBarriers/RigidBody2D2"]
 shape = SubResource("SegmentShape2D_c24jh")
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+[node name="RigidBody2D3" type="RigidBody2D" parent="sceneBarriers"]
 position = Vector2(3640, 375)
 rotation = 1.5708
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sceneBarriers/RigidBody2D3"]
 shape = SubResource("SegmentShape2D_c24jh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -333,6 +387,26 @@ position = Vector2(1818, 233)
 scale = Vector2(6.74204, 6.74204)
 texture = ExtResource("4_1fe40")
 
+[node name="conde_cadeira" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2870, 293)
+scale = Vector2(6.72, 6.72)
+sprite_frames = SubResource("SpriteFrames_yrykl")
+animation = &"conde_cadeira"
+script = ExtResource("6_dvahy")
+
+[node name="ambient_people" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_y76hm")
+volume_db = -2.0
+
+[node name="ambient_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kt7hg")
+volume_db = -15.0
+
+[node name="conde_chair" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nnuwg")
+volume_db = -2.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
@@ -341,13 +415,41 @@ position = Vector2(1311.62, 0)
 scale = Vector2(50.631, 30.137)
 texture = ExtResource("4_1wwep")
 
-[node name="conde_cadeira" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2870, 293)
-scale = Vector2(6.72, 6.72)
-sprite_frames = SubResource("SpriteFrames_yrykl")
-animation = &"conde_cadeira"
-script = ExtResource("6_dvahy")
+[node name="backgroundPeople" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(988, 337)
+scale = Vector2(6.77239, 6.77239)
+sprite_frames = SubResource("SpriteFrames_nnuwg")
+animation = &"pessoas_fundo"
+autoplay = "pessoas_fundo"
+frame_progress = 0.63564
+
+[node name="backgroundPeople2" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(2619, 337)
+scale = Vector2(6.77239, 6.77239)
+sprite_frames = SubResource("SpriteFrames_nnuwg")
+animation = &"pessoas_fundo"
+autoplay = "pessoas_fundo"
+frame_progress = 0.63564
+
+[node name="backgroundPeople3" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(1050.55, 290.172)
+scale = Vector2(6.77239, 6.77239)
+sprite_frames = SubResource("SpriteFrames_nnuwg")
+animation = &"pessoas_fundo"
+autoplay = "pessoas_fundo"
+frame_progress = 0.63564
+
+[node name="backgroundPeople4" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(2681.55, 290.172)
+scale = Vector2(6.77239, 6.77239)
+sprite_frames = SubResource("SpriteFrames_nnuwg")
+animation = &"pessoas_fundo"
+autoplay = "pessoas_fundo"
+frame_progress = 0.63564
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="conde_cadeira" to="conde_cadeira" method="_on_animation_finished"]
