@@ -576,6 +576,7 @@ stream_2/stream = ExtResource("6_smehm")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 scale = Vector2(1.64, 2.92)
 script = ExtResource("1_g2els")
+score = 300
 scoreNeeded = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

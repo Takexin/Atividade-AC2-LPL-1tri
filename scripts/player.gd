@@ -56,7 +56,7 @@ signal sceneFinished
 
 
 func _ready() -> void:
-	print(get_tree().root.get_child(2).name)
+	print(currentMainScene.get_child(0).name)
 	print(currentPlayer)
 	if currentMainScene.name.to_lower() == "main" or currentMainScene.get_child(0).name == "main":
 		grassSound.play()
@@ -69,7 +69,7 @@ func _ready() -> void:
 		camera.limit_right = startCamera.limit_right
 		
 		
-	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name == "main2":
+	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name.to_lower() == "main2":
 		print("is in main 22222222")
 		
 		

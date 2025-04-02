@@ -506,7 +506,9 @@ scale = Vector2(6.68914, 6.68914)
 sprite_frames = SubResource("SpriteFrames_0ld40")
 autoplay = "default"
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="main"]
+position = Vector2(-0.000244141, -3.05176e-05)
+scale = Vector2(1, 1)
 color = Color(1, 0.1, 0, 1)
 energy = 0.7
 range_item_cull_mask = 3

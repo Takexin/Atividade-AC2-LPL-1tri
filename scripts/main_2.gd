@@ -20,5 +20,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	playerInstance.get_child(0).currentPlayer = 1
 	cutsceneCamera.enabled = false
 	add_child(playerInstance)
+	await playerInstance.ready
 	
 	
