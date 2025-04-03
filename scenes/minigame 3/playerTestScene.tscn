@@ -17,9 +17,9 @@ freeze = true
 shape = SubResource("SegmentShape2D_q28v0")
 
 [node name="BrasPlayer" parent="." instance=ExtResource("1_88toa")]
-position = Vector2(397, 223)
+position = Vector2(214, 266)
 scale = Vector2(5, 5)
 
 [node name="Lobo" parent="." instance=ExtResource("2_8mf3b")]
-position = Vector2(966, 303)
+position = Vector2(1128, 322)
 scale = Vector2(5, 5)
