@@ -40,6 +40,7 @@ table="group for crafting table "
 player=""
 deposit=""
 conde=""
+enemy=""
 
 [gui]
 
@@ -81,7 +82,7 @@ actionRight={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://assets/dialogue/main.dialogue", "res://assets/dialogue/main2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://assets/dialogue/main.dialogue", "res://assets/dialogue/main2.dialogue", "res://assets/dialogue/main3.dialogue")
 
 [layer_names]
 

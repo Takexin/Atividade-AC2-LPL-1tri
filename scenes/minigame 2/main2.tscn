@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ym6726jgqbmu"]
+[gd_scene load_steps=34 format=3 uid="uid://ym6726jgqbmu"]
 
 [ext_resource type="Script" uid="uid://caevn5rowm153" path="res://scripts/main_2.gd" id="1_7d6dd"]
 [ext_resource type="PackedScene" uid="uid://wsed14y5j3p4" path="res://scenes/playerCutscene.tscn" id="3_i8xl7"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://djhm1bv6t1rr3" path="res://assets/audio/minigame 2/LetMeCook.mp3" id="7_kt7hg"]
 [ext_resource type="AudioStream" uid="uid://brbjo43swonnq" path="res://assets/audio/minigame 2/PessoasFalandoFundo.mp3" id="7_y76hm"]
 [ext_resource type="AudioStream" uid="uid://coud3v7tqk13q" path="res://assets/audio/minigame 2/conde_cadeira1.mp3" id="8_nnuwg"]
+[ext_resource type="FontFile" uid="uid://ditcpi0qghrv" path="res://assets/fonts/lunchtime-doubly-so/lunchds.ttf" id="10_kkuk5"]
 [ext_resource type="Texture2D" uid="uid://dnwau5rvn2813" path="res://assets/emails/minigame 2/pessoas_fundo-Sheet.png" id="10_m8q5w"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_c24jh"]
@@ -101,6 +102,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Cap:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7d6dd"]
 resource_name = "start_anim"
@@ -112,7 +125,7 @@ tracks/0/path = NodePath("CharacterBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(2, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(78, 415), Vector2(1000, 415)]
@@ -124,7 +137,7 @@ tracks/1/path = NodePath("cutsceneCamera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.93333, 4.2, 5.6, 9.2, 10.5),
+"times": PackedFloat32Array(2, 4.93333, 6.2, 7.6, 11.2, 12.5),
 "transitions": PackedFloat32Array(1, 2.73208, 2.73208, 1, 1, 3.86374),
 "update": 0,
 "values": [Vector2(668.46, 250), Vector2(1000, 250), Vector2(1000, 250), Vector2(2850, 250), Vector2(2850, 250), Vector2(1000, 250)]
@@ -136,7 +149,7 @@ tracks/2/path = NodePath("cutsceneCamera:zoom")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.9794),
+"times": PackedFloat32Array(2, 4.9794),
 "transitions": PackedFloat32Array(1, 3.13834),
 "update": 0,
 "values": [Vector2(1.3, 1.3), Vector2(1.1, 1.1)]
@@ -148,7 +161,7 @@ tracks/3/path = NodePath("CanvasLayer/Sprite2D:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.966667),
+"times": PackedFloat32Array(2, 2.96667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
@@ -160,7 +173,7 @@ tracks/4/path = NodePath("CanvasLayer/Sprite2D:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.966667),
+"times": PackedFloat32Array(2, 2.96667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -172,7 +185,7 @@ tracks/5/path = NodePath("conde_cadeira:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(7.5),
+"times": PackedFloat32Array(9.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -184,10 +197,22 @@ tracks/6/path = NodePath("CharacterBody2D:currentState")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(2, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Cap:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8xl7"]
@@ -439,6 +464,35 @@ offset_top = 113.0
 offset_right = 819.0
 offset_bottom = 185.0
 text = "CONDE NÃO CONFIA EM VOCÊ"
+
+[node name="Cap" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Cap"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 134.0
+offset_right = 1034.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("10_kkuk5")
+theme_override_font_sizes/font_size = 150
+text = "CAPITULO II
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Cap"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 281.0
+offset_right = 848.0
+offset_bottom = 429.0
+theme_override_font_sizes/font_size = 60
+text = "---------------------------
+A PERSUASÃO"
+horizontal_alignment = 1
 
 [node name="backgroundPeople" type="AnimatedSprite2D" parent="."]
 z_index = -1

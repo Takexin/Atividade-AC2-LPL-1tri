@@ -3,6 +3,15 @@ Luís Cubas: Ali está, Conde da Cunha, o vice-rei.
 Luís Cubas: Preciso falar com ele.
 => END
 
+
+~ final
+Bras Cubas: No final das contas, ele se tornou amigo daquele Vice-Rei
+Bras Cubas: Ele foi a primeira geração que trouxe o orgulho da família. 
+set Global.playerDialogueState = 3
+=> END 
+
+
+
 ~ start
 Luís Cubas: Vossa Excelência é a estrela que guia esta colônia! 
 Luís Cubas: Sem sua liderança, estaríamos à deriva!
@@ -27,10 +36,12 @@ Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
 	
 	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
 	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.
+		set Global.playerDialogueState = 1
+		
 		Conde da Cunha: Hah! Valente, mas ingênuo. Um duelo pode eliminar um inimigo, mas também traz escândalo desnecessário.
 		Luís Cubas: A honra não tem preço.
 		Conde da Cunha: Boa resposta... mas há formas mais eficientes de resolver as coisas.
-		set Global.playerDialogueState = 1
+		
 	- A língua é mais afiada que a espada. Usaria rumores para destruí-lo antes que ele pudesse agir.
 		Conde da Cunha: Agora sim, um homem que entende o jogo!
 		Luís Cubas: Um inimigo derrotado antes de lutar já está morto
@@ -56,10 +67,11 @@ Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
 	Conde da Cunha: Hah! Um homem prático. Gosto disso.
 	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
 	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.
+		set Global.playerDialogueState = 1
 		Conde da Cunha: Hah! Valente, mas ingênuo. Um duelo pode eliminar um inimigo, mas também traz escândalo desnecessário.
 		Luís Cubas: A honra não tem preço.
 		Conde da Cunha: Boa resposta... mas há formas mais eficientes de resolver as coisas.
-		set Global.playerDialogueState = 1
+		
 	- A língua é mais afiada que a espada. Usaria rumores para destruí-lo antes que ele pudesse agir.
 		Conde da Cunha: Agora sim, um homem que entende o jogo!
 		Luís Cubas: Um inimigo derrotado antes de lutar já está morto
@@ -71,14 +83,11 @@ Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
 		Conde da Cunha: Interessante, creio que podemos ser bons aliados
 		set Global.playerDialogueState = 2
 
-~ final
-	Bras Cubas: No final das contas, ele se tornou amigo daquele Vice-Rei
-	Bras Cubas: Ele foi a primeira geração que trouxe o orgulho da família. 
-	set Global.playerDialogueState = 3
-		
-		
-		
-		
+
+
+
+
+
 ~ segundaParte
 	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
 	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.

@@ -4,7 +4,7 @@ extends CharacterBody2D
 #ultimos 5 frames 2 seg
 #resto 130ms
 
-var SPEED = 300.0
+@export var SPEED = 300.0
 const ACCEL = 40
 const JUMP_VELOCITY = -400.0
 
@@ -65,10 +65,13 @@ func _ready() -> void:
 	print(currentMainScene.get_child(0).name)
 	print(currentPlayer)
 	if currentMainScene.name.to_lower() == "main" or currentMainScene.get_child(0).name == "main":
+		var animationPlayer = get_tree().root.get_node("core/main/AnimationPlayer")
+		animationPlayer.play("chapter")
+		await animationPlayer.animation_finished
 		grassSound.play()
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
 		DialogueManager.connect("dialogue_ended", onDialogueEnded)
-		var animationPlayer = get_tree().root.get_node("core/main/AnimationPlayer")
+		
 		animationPlayer.connect("animation_finished", onAnimationEnded)
 		var startCamera = isMain.get_node("startCamera")
 		camera.limit_left = startCamera.limit_left
@@ -118,7 +121,9 @@ func onDialogue2Ended(res):
 		canWalk = false
 		canIdle = false
 		canAttack = false
-		$AnimationPlayer.play("win_luis")
+		if !deadAnimationHasPlayed:
+			deadAnimationHasPlayed = true
+			$AnimationPlayer.play("win_luis")
 	else:
 		canWalk = true
 
@@ -271,5 +276,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		controlNode.get_child(1).text = "Você ganhou o respeito do Conde"
 		controlNode.get_child(0).queue_free()
 		controlNode.visible = true
+		DialogueManager.show_dialogue_balloon(dialogue2, "final")
 		sceneFinished.emit()
 		

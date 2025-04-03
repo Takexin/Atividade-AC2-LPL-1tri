@@ -29,7 +29,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		playerInstance.global_position = cutscenePlayer.global_position
 		cutscenePlayer.queue_free()
 		condeCadeira.queue_free()
-		playerInstance.connect("sceneFinished", onSceneFinished)
+		#playerInstance.get_child(0).connect("sceneFinished", onSceneFinished)
 		playerInstance.get_child(0).currentPlayer = 1
 		playerInstance.z_index = 3
 		cutsceneCamera.enabled = false
@@ -37,6 +37,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		var condeInstance = condeScene.instantiate()
 		condeInstance.position = Vector2(2500,415)
 		add_child(condeInstance)
+		await playerInstance.get_child(0).sceneFinished
+		
 		
 func onSceneFinished():
 	get_tree().create_timer(2).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://blxbaucp10f5n"]
+[gd_scene load_steps=46 format=3 uid="uid://blxbaucp10f5n"]
 
 [ext_resource type="Script" uid="uid://es2vjna43hl" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="Script" uid="uid://c3pk7g7rm847l" path="res://scripts/core.gd" id="1_trceg"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dg5dq0so5e60d" path="res://scenes/deposit.tscn" id="7_o6xl0"]
 [ext_resource type="Shader" uid="uid://bspn381bw8lqp" path="res://scripts/shader/main.gdshader" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://du7yitww8nuac" path="res://assets/emails/ground-Sheet.png" id="12_eb6dy"]
+[ext_resource type="FontFile" uid="uid://ditcpi0qghrv" path="res://assets/fonts/lunchtime-doubly-so/lunchds.ttf" id="12_jkv2x"]
 
 [sub_resource type="Theme" id="Theme_trceg"]
 
@@ -232,6 +233,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Cap:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "start"
@@ -285,9 +298,26 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_jbj1t"]
+resource_name = "chapter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Cap:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tipki"]
 _data = {
 &"RESET": SubResource("Animation_tipki"),
+&"chapter": SubResource("Animation_jbj1t"),
 &"start": SubResource("Animation_o6xl0")
 }
 
@@ -437,7 +467,6 @@ animation = &"wood"
 autoplay = "wood"
 
 [node name="fade" type="Sprite2D" parent="main/CanvasLayer"]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = 100
 scale = Vector2(42.2852, -31.2757)
@@ -448,6 +477,36 @@ script = ExtResource("5_tefeu")
 visible = false
 material = SubResource("ShaderMaterial_eb6dy")
 texture = ExtResource("5_tbgi4")
+
+[node name="Cap" type="Control" parent="main/CanvasLayer"]
+z_index = 101
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="main/CanvasLayer/Cap"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 134.0
+offset_right = 1034.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("12_jkv2x")
+theme_override_font_sizes/font_size = 150
+text = "CAPITULO I
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="main/CanvasLayer/Cap"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 281.0
+offset_right = 848.0
+offset_bottom = 429.0
+theme_override_font_sizes/font_size = 60
+text = "---------------------------
+HUMILDES COMEÇOS"
+horizontal_alignment = 1
 
 [node name="Table" parent="main" instance=ExtResource("4_jyhfs")]
 position = Vector2(-934, 241)

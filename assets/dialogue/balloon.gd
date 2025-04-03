@@ -100,7 +100,13 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
-	var portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
+	var portrait_path = ""
+	if Global.playerDialogueState == 1:
+		portrait_path = "res://assets/emails/icons/%s s.png"%dialogue_line.character.to_lower()
+	elif Global.playerDialogueState == -1:
+		portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
+	else:
+		portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
 	if FileAccess.file_exists(portrait_path):
 		portrait.texture = load(portrait_path)
 	else:

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://p8mqjryuqcpf"]
+
+[ext_resource type="PackedScene" uid="uid://bd5aune0n5142" path="res://scenes/minigame 3/brasPlayer.tscn" id="1_88toa"]
+[ext_resource type="PackedScene" uid="uid://f8fx83j4ujy3" path="res://scenes/minigame 3/lobo.tscn" id="2_8mf3b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q28v0"]
+a = Vector2(10000, 0)
+b = Vector2(-1100, 10)
+
+[node name="PlayerTestScene" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(521, 560)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("SegmentShape2D_q28v0")
+
+[node name="BrasPlayer" parent="." instance=ExtResource("1_88toa")]
+position = Vector2(397, 223)
+scale = Vector2(5, 5)
+
+[node name="Lobo" parent="." instance=ExtResource("2_8mf3b")]
+position = Vector2(966, 303)
+scale = Vector2(5, 5)
