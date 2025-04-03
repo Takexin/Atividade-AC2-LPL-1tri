@@ -24,22 +24,75 @@ Conde da Cunha: Diga-me, o que pensa do futuro da colônia?
 	Luís Cubas: Tenho investido na importação de produtos de luxo e financiado algumas expedições.
 	
 	Conde da Cunha: Hah! Então és um homem que sabe onde colocar suas moedas. Gostei de você.
-- O Brasil precisa de mais autonomia para crescer de verdade
-	set self.failedDialogue = true
-	Conde da Cunha: Está sugerindo que devemos contrariar a Coroa?
 	
+	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
+	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.
+		Conde da Cunha: Hah! Valente, mas ingênuo. Um duelo pode eliminar um inimigo, mas também traz escândalo desnecessário.
+		Luís Cubas: A honra não tem preço.
+		Conde da Cunha: Boa resposta... mas há formas mais eficientes de resolver as coisas.
+		set Global.playerDialogueState = 1
+	- A língua é mais afiada que a espada. Usaria rumores para destruí-lo antes que ele pudesse agir.
+		Conde da Cunha: Agora sim, um homem que entende o jogo!
+		Luís Cubas: Um inimigo derrotado antes de lutar já está morto
+		Luís Cubas: Precisamos conversar mais, gosto de sua forma de pensar.
+		set Global.playerDialogueState = 2
+	- O poder não se gasta com insignificantes. Deixaria que se queimasse sozinho.
+		Conde da Cunha: Hah! Frieza e paciência... Mas às vezes, ignorar um inimigo pode deixá-lo mais forte.
+		Luís Cubas: Apenas os tolos desperdiçam pólvora com moscas.
+		Conde da Cunha: Interessante, creio que podemos ser bons aliados
+		set Global.playerDialogueState = 2
+- O Brasil precisa de mais autonomia para crescer de verdade
+	set Global.playerDialogueState = 1
+	Conde da Cunha: Está sugerindo que devemos contrariar a Coroa?
 	Luís Cubas: De forma alguma!
 	Luís Cubas: Apenas digo que um Brasil próspero significa um Império mais forte.
-	
-	
 	Conde da Cunha: Hm... Você joga bem com as palavras.
 	Conde da Cunha: Ainda não sei se devo confiar em você.
+	=> END
 - O verdadeiro poder está em quem controla o exército e os fornecimentos.
 	Conde da Cunha: Vejo que enxerga além da política.
 	Conde da Cunha: Dinheiro e soldados governam mais que decretos.
-	
 	Luís Cubas: Apenas um homem tolo desprezaria o poder real que move um império. 
-	
 	Conde da Cunha: Hah! Um homem prático. Gosto disso.
-	Conde da Cunha: Precisamos conversar mais...
+	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
+	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.
+		Conde da Cunha: Hah! Valente, mas ingênuo. Um duelo pode eliminar um inimigo, mas também traz escândalo desnecessário.
+		Luís Cubas: A honra não tem preço.
+		Conde da Cunha: Boa resposta... mas há formas mais eficientes de resolver as coisas.
+		set Global.playerDialogueState = 1
+	- A língua é mais afiada que a espada. Usaria rumores para destruí-lo antes que ele pudesse agir.
+		Conde da Cunha: Agora sim, um homem que entende o jogo!
+		Luís Cubas: Um inimigo derrotado antes de lutar já está morto
+		Luís Cubas: Precisamos conversar mais, gosto de sua forma de pensar.
+		set Global.playerDialogueState = 2
+	- O poder não se gasta com insignificantes. Deixaria que se queimasse sozinho.
+		Conde da Cunha: Hah! Frieza e paciência... Mas às vezes, ignorar um inimigo pode deixá-lo mais forte.
+		Luís Cubas: Apenas os tolos desperdiçam pólvora com moscas.
+		Conde da Cunha: Interessante, creio que podemos ser bons aliados
+		set Global.playerDialogueState = 2
+
+~ final
+	Bras Cubas: No final das contas, ele se tornou amigo daquele Vice-Rei
+	Bras Cubas: Ele foi a primeira geração que trouxe o orgulho da família. 
+	set Global.playerDialogueState = 3
+		
+		
+		
+		
+~ segundaParte
+	Conde da Cunha: Agora me diga, se um desafeto meu tentasse me difamar na corte, como lidaria com isso?
+	- Desafios à honra exigem duelos. Eu o desafiaria para defender Vossa Excelência.
+		Conde da Cunha: Hah! Valente, mas ingênuo. Um duelo pode eliminar um inimigo, mas também traz escândalo desnecessário.
+		Luís Cubas: A honra não tem preço.
+		Conde da Cunha: Boa resposta... mas há formas mais eficientes de resolver as coisas.
+		set Global.playerDialogueFailed = true
+	- A língua é mais afiada que a espada. Usaria rumores para destruí-lo antes que ele pudesse agir.
+		Conde da Cunha: Agora sim, um homem que entende o jogo!
+		Luís Cubas: Um inimigo derrotado antes de lutar já está morto
+		Luís Cubas: Precisamos conversar mais, gosto de sua forma de pensar.
+		
+	- O poder não se gasta com insignificantes. Deixaria que se queimasse sozinho.
+		Conde da Cunha: Hah! Frieza e paciência... Mas às vezes, ignorar um inimigo pode deixá-lo mais forte.
+		Luís Cubas: Apenas os tolos desperdiçam pólvora com moscas.
+		Conde da Cunha: Interessante, creio que podemos ser bons aliados
 => END

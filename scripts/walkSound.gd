@@ -18,7 +18,7 @@ func _ready() -> void:
 		stream = load("res://assets/audio/minigame 2/player_walk_scene2.tres")
 
 func _process(delta: float) -> void:
-	if character.direction != 0 and !is_playing() and canPlay:
+	if character.direction != 0 and !is_playing() and canPlay and character.canWalk:
 		play()
 		canPlay = false
 		await get_tree().create_timer(timeDelay).timeout

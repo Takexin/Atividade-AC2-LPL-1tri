@@ -9,10 +9,19 @@ func _ready() -> void:
 		
 func onFirstSceneFinished():
 	swapScene(scene2)
-func swapScene(scene) -> void:
-	currentScene.queue_free()
-	var sceneInstance = scene.instantiate()
-	await currentScene.tree_exited
-	add_child(sceneInstance)
-	currentScene = sceneInstance
-	await sceneInstance.ready
+func swapScene(scene, sceneIndex = -1) -> void:
+	if sceneIndex == -1:
+		currentScene.queue_free()
+		var sceneInstance = scene.instantiate()
+		await currentScene.tree_exited
+		add_child(sceneInstance)
+		currentScene = sceneInstance
+		await sceneInstance.ready
+	else:
+		if sceneIndex == 2:
+			currentScene.queue_free()
+			var sceneInstance = scene2.instantiate()
+			await currentScene.tree_exited
+			add_child(sceneInstance)
+			currentScene = sceneInstance
+			await sceneInstance.ready

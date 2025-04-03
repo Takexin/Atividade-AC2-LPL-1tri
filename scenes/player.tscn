@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://h2l21fvvjurn"]
+[gd_scene load_steps=33 format=3 uid="uid://h2l21fvvjurn"]
 
 [ext_resource type="Script" uid="uid://dvbc1dtelsdy2" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ckn0euqflbde0" path="res://assets/emails/trisavo_idle-Sheet.png" id="2_y4r1p"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmyl0b8fqswdm" path="res://assets/emails/minigame 2/luis_walk-Sheet.png" id="6_qfm1y"]
 [ext_resource type="AudioStream" uid="uid://ctddnrbwqr6c3" path="res://assets/audio/axe1.mp3" id="7_fjrip"]
 [ext_resource type="Texture2D" uid="uid://c3m6ym4pxihik" path="res://assets/emails/minigame 2/luis_cubas_idle-Sheet.png" id="7_fulsm"]
+[ext_resource type="Texture2D" uid="uid://b05mv43usqfbh" path="res://assets/emails/minigame 2/luis_game_over-Sheet.png" id="8_fulsm"]
 [ext_resource type="AudioStream" uid="uid://cvoh5366w8xvf" path="res://assets/audio/GanhandoDinheiro.mp3" id="8_smehm"]
 [ext_resource type="AudioStream" uid="uid://c7f6scfdepxh7" path="res://assets/audio/player_walk_scene1.tres" id="9_a8ls1"]
 [ext_resource type="AudioStream" uid="uid://bulpsp2vjb40b" path="res://assets/audio/DinheiroDepositado.mp3" id="9_ur7pv"]
@@ -17,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dl2glebnvdp11" path="res://assets/audio/wrong-47985.mp3" id="10_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://n003jidrig23" path="res://assets/audio/coin.wav" id="11_jej6c"]
 [ext_resource type="AudioStream" uid="uid://c0a87x4drgro4" path="res://assets/audio/SomDeGramaeoskrlh.mp3" id="16_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="18_4r5pv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
 radius = 15.8972
@@ -123,6 +125,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(0, -32.1918)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = false
+tracks/8/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_jej6c"]
 resource_name = "attack_trisavo"
@@ -186,6 +212,118 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_qfm1y"]
+resource_name = "dead_luis"
+length = 2.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_fulsm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [29]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("CharacterBody2D/CollisionShape2D/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.992)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D/AnimationPlayer:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CharacterBody2D/camera_scene1:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CharacterBody2D/camera_scene1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -32.1918), Vector2(0, 1.268)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_a8ls1"]
@@ -552,16 +690,82 @@ tracks/4/keys = {
 "values": [0.5]
 }
 
+[sub_resource type="Animation" id="Animation_60mlk"]
+resource_name = "win_luis"
+length = 2.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/AnimationPlayer:speed_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/camera_scene1:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterBody2D/camera_scene1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -32.1918), Vector2(0, 1.268)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterBody2D/camera_scene1/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
 &"RESET": SubResource("Animation_dqkch"),
 &"attack_trisavo": SubResource("Animation_jej6c"),
+&"dead_luis": SubResource("Animation_qfm1y"),
 &"dead_trisavo": SubResource("Animation_a8ls1"),
 &"idle_luis": SubResource("Animation_4r5pv"),
 &"idle_trisavo": SubResource("Animation_d2wvv"),
 &"mouse click": SubResource("Animation_qhqgy"),
 &"walk_luis": SubResource("Animation_fulsm"),
-&"walk_trisavo": SubResource("Animation_3v2ag")
+&"walk_trisavo": SubResource("Animation_3v2ag"),
+&"win_luis": SubResource("Animation_60mlk")
 }
 
 [node name="Player" type="Node2D"]
@@ -611,6 +815,14 @@ position = Vector2(0, -32.1918)
 enabled = false
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/camera_scene1"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 0)
+z_index = -1
+position = Vector2(53.6585, 21.2329)
+scale = Vector2(17.4579, 4.51034)
+texture = ExtResource("18_4r5pv")
 
 [node name="camera_scene2" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -32.1918)

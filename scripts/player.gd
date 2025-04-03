@@ -54,7 +54,7 @@ signal sceneFinished
 @onready var isMain = get_tree().root.get_node("core/main")
 @onready var isMain2 = get_tree().root.get_node("core/main2")
 
-@onready var currentMainScene = get_tree().root.get_child(2)
+@onready var currentMainScene = get_tree().root.get_child(3)
 @onready var camera = $camera_scene1
 @onready var mouseSprite = $"../CanvasLayer/Mouse"
 
@@ -77,7 +77,7 @@ func _ready() -> void:
 		
 	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name.to_lower() == "main2":
 		DialogueManager.connect("dialogue_ended", onDialogue2Ended)
-		canWalk = true
+		canWalk = false
 		canAttack = true
 		camera.enabled = true
 		#camera.limit_top = -105
@@ -109,8 +109,18 @@ func onDialogueEnded(resource):
 	
 func onDialogue2Ended(res):
 	print("dialogue ended")
-	if failedDialogue:
-		print("dialogue failed")
+	if Global.playerDialogueState == 1:
+		canWalk = false
+		canIdle = false
+		canAttack = false
+		$AnimationPlayer.play("dead_luis")
+	elif Global.playerDialogueState ==2:
+		canWalk = false
+		canIdle = false
+		canAttack = false
+		$AnimationPlayer.play("win_luis")
+	else:
+		canWalk = true
 
 
 func onAnimationEnded(name):
@@ -243,6 +253,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 				depositMax.emit()
 	elif body.is_in_group("conde"):
 		DialogueManager.show_dialogue_balloon(dialogue2, "start")
+		canWalk = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -251,5 +262,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		grassSound.playing = false
 		hasDied.emit()
 		await get_tree().create_timer(3).timeout
-		DialogueManager.show_dialogue_balloon(dialogue, "morte", [self])
+		DialogueManager.show_dialogue_balloon(dialogue, "morte")
 		currentCutscene = 2
+	elif anim_name == "dead_luis":
+		get_parent().get_parent().get_node("CanvasLayer/Control").visible = true
+	elif anim_name == "win_luis":
+		var controlNode = get_parent().get_parent().get_node("CanvasLayer/Control")
+		controlNode.get_child(1).text = "Você ganhou o respeito do Conde"
+		controlNode.get_child(0).queue_free()
+		controlNode.visible = true
+		sceneFinished.emit()
+		

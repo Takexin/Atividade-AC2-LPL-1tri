@@ -11,7 +11,7 @@ const condeScene = preload("res://scenes/minigame 2/conde.tscn")
 @onready var dialogue = load("res://assets/dialogue/main2.dialogue")
 
 func _ready() -> void:
-	
+	Global.playerDialogueState = -1
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play( "start_anim")
 	ambientMusic.play()
@@ -29,12 +29,25 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		playerInstance.global_position = cutscenePlayer.global_position
 		cutscenePlayer.queue_free()
 		condeCadeira.queue_free()
+		playerInstance.connect("sceneFinished", onSceneFinished)
 		playerInstance.get_child(0).currentPlayer = 1
+		playerInstance.z_index = 3
 		cutsceneCamera.enabled = false
 		add_child(playerInstance)
 		var condeInstance = condeScene.instantiate()
 		condeInstance.position = Vector2(2500,415)
 		add_child(condeInstance)
 		
+func onSceneFinished():
+	get_tree().create_timer(2).timeout
+	DialogueManager.show_dialogue_balloon(dialogue, "final")
+	await DialogueManager.dialogue_ended
+	print("diaologue ended on main 2")
+
+func _on_button_pressed() -> void:
+	var core = get_tree().root.get_node("core")
+	if core:
+		core.swapScene(null, 2)
+	else:
+		get_tree().reload_current_scene()
 		
-	
