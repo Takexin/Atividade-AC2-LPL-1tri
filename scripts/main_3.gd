@@ -10,7 +10,7 @@ extends Node2D
 @onready var player = $BrasPlayer
 @onready var lobo = $Lobo
 const dialogue3 = preload("res://assets/dialogue/main3.dialogue")
-
+var dialogueBubble
 
 func sceneEnd():
 	lobo.call_deferred("queue_free")
@@ -31,7 +31,8 @@ func _ready():
 	fade.visible = true
 	animationPlayer.play("chapter")
 	await animationPlayer.animation_finished
-	var dialogueBubble = DialogueManager.show_dialogue_balloon(dialogue3, "start")
+	dialogueBubble = DialogueManager.show_dialogue_balloon(dialogue3, "start")
+	dialogueBubble.skip_action = ""
 	music.play()
 	dialogueBubble.canSkip = false
 	await dialogueBubble.lineEnded
