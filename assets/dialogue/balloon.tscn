@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnaraiaaegmya"]
+[gd_scene load_steps=12 format=3 uid="uid://dnaraiaaegmya"]
 
 [ext_resource type="Script" uid="uid://dcegcj5qyvcsy" path="res://assets/dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://cv4bu06lb8k8g" path="res://assets/audio/dialogue audio/cunha.mp3" id="5_2g7mb"]
 [ext_resource type="AudioStream" uid="uid://bm6b21tahu0mw" path="res://assets/audio/dialogue audio/tutu.mp3" id="5_nmn4d"]
 [ext_resource type="AudioStream" uid="uid://co3haiptmh12f" path="res://assets/audio/dialogue audio/nicks.mp3" id="5_oih1g"]
+[ext_resource type="AudioStream" uid="uid://dery6xt0sbj5j" path="res://assets/audio/minigame 3/tainah.mp3" id="7_m4i0f"]
+[ext_resource type="AudioStream" uid="uid://b7pyiegu5blao" path="res://assets/audio/minigame 3/padre.mp3" id="11_lhunj"]
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -114,6 +116,9 @@ stream = ExtResource("4_gp408")
 [node name="stream_nicks" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_oih1g")
 
+[node name="stream_tainah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m4i0f")
+
 [node name="stream_placeholder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ofehm")
 
@@ -122,6 +127,9 @@ stream = ExtResource("5_2g7mb")
 
 [node name="stream_tutu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nmn4d")
+
+[node name="stream_padre" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lhunj")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

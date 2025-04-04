@@ -1,14 +1,51 @@
-[gd_scene load_steps=59 format=3 uid="uid://bd5aune0n5142"]
+[gd_scene load_steps=73 format=3 uid="uid://bd5aune0n5142"]
 
 [ext_resource type="Texture2D" uid="uid://5iyw02j7ohax" path="res://assets/emails/minigame 3/bras_cubas_idle-Sheet.png" id="1_8huir"]
 [ext_resource type="Script" uid="uid://qcctyldsffae" path="res://scripts/brasPlayer.tres.gd" id="1_b0st2"]
 [ext_resource type="Texture2D" uid="uid://fp5wqgwer0pk" path="res://assets/emails/minigame 3/lobo_idle-Sheet.png" id="1_tg7f3"]
 [ext_resource type="Texture2D" uid="uid://cod80mwrxtdal" path="res://assets/emails/minigame 3/lobo_run-Sheet.png" id="2_8huir"]
+[ext_resource type="Texture2D" uid="uid://byf1ircsla2ec" path="res://assets/emails/minigame 3/bras_cubas_damage-Sheet.png" id="2_k11qm"]
 [ext_resource type="Texture2D" uid="uid://dd1kpvh0sr1gm" path="res://assets/emails/minigame 3/bras_cubas_run-Sheet.png" id="3_631r2"]
 [ext_resource type="Texture2D" uid="uid://urxhvk6peqj7" path="res://assets/emails/minigame 3/bras_cubas_strong_attack-Sheet.png" id="5_80wce"]
 [ext_resource type="Texture2D" uid="uid://s3v5slup7oxu" path="res://assets/emails/minigame 3/bras_cubas_weak_attack-Sheet.png" id="5_lyifc"]
+[ext_resource type="AudioStream" uid="uid://cc7jetc4woh2n" path="res://assets/audio/minigame 3/somdoars (mp3cut.net).mp3" id="9_lk3yx"]
+[ext_resource type="AudioStream" uid="uid://c5l3m1f3bwcer" path="res://assets/audio/minigame 3/porradavariada (mp3cut.net).mp3" id="10_sqb4u"]
+[ext_resource type="AudioStream" uid="uid://c7f6scfdepxh7" path="res://assets/audio/player_walk_scene1.tres" id="11_lph4v"]
+[ext_resource type="Script" uid="uid://bxb8skoo6ljl" path="res://scripts/walkSoundBras.gd" id="13_gnhj4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_631r2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yvli"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh383"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0frs2"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guai0"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huhr1"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xmvr"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1xap"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldkma"]
+atlas = ExtResource("2_k11qm")
+region = Rect2(350, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_631r2"]
 atlas = ExtResource("1_8huir")
@@ -188,6 +225,35 @@ region = Rect2(200, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lyifc"]
 animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_0yvli")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_uh383")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_0frs2")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_guai0")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_huhr1")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_2xmvr")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_b1xap")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_ldkma")
+}],
+"loop": false,
+"name": &"damage_bras",
+"speed": 1.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -362,7 +428,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_631r2"]
-radius = 9.0
+radius = 14.0
 
 [sub_resource type="Animation" id="Animation_b0st2"]
 resource_name = "RESET"
@@ -500,7 +566,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(22.045, -6.04), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(14.41, -6.04), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -528,19 +594,19 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("AnimatedSprite2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(20.08, 0)]
+"update": 1,
+"values": [Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("CollisionShape2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -587,7 +653,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(10.44, -3.3), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(14.955, -6.69), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -623,7 +689,19 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.0]
+"values": [3.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b0st2"]
@@ -632,6 +710,13 @@ _data = {
 &"strong_attack_bras": SubResource("Animation_k11qm"),
 &"weak_attack_bras": SubResource("Animation_80wce")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0st2"]
+bg_color = Color(0.439, 0.568, 1, 0.287)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="BrasPlayer" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_b0st2")
@@ -658,6 +743,7 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -677,8 +763,25 @@ offset_top = -124.845
 offset_right = 38.635
 offset_bottom = 125.34
 grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_b0st2")
 max_value = 40.0
+rounded = true
 fill_mode = 3
 show_percentage = false
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lk3yx")
+
+[node name="hitland" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sqb4u")
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lph4v")
+volume_db = 5.0
+script = ExtResource("13_gnhj4")
+
 [connection signal="body_entered" from="AnimatedSprite2D/hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="walk" to="walk" method="_on_finished"]

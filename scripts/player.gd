@@ -79,6 +79,7 @@ func _ready() -> void:
 		
 		
 	elif currentMainScene.name.to_lower() == "main2" or currentMainScene.get_child(0).name.to_lower() == "main2":
+		SPEED = 200
 		DialogueManager.connect("dialogue_ended", onDialogue2Ended)
 		canWalk = false
 		canAttack = true
@@ -276,6 +277,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		controlNode.get_child(1).text = "Você ganhou o respeito do Conde"
 		controlNode.get_child(0).queue_free()
 		controlNode.visible = true
-		DialogueManager.show_dialogue_balloon(dialogue2, "final")
 		sceneFinished.emit()
 		

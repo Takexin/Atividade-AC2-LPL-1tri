@@ -27,6 +27,7 @@ runtime/balloon_path="res://assets/dialogue/balloon.tscn"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -82,7 +83,7 @@ actionRight={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://assets/dialogue/main.dialogue", "res://assets/dialogue/main2.dialogue", "res://assets/dialogue/main3.dialogue")
+locale/translations_pot_files=PackedStringArray("res://assets/dialogue/main.dialogue", "res://assets/dialogue/main2.dialogue", "res://assets/dialogue/main3.dialogue", "res://assets/dialogue/main4.dialogue")
 
 [layer_names]
 

@@ -1,0 +1,303 @@
+[gd_scene load_steps=31 format=3 uid="uid://6cs2rhcdo240"]
+
+[ext_resource type="Texture2D" uid="uid://bt1t1lpacn4c0" path="res://assets/emails/minigame 4/sala de aula-Sheet.png" id="1_60smj"]
+[ext_resource type="Script" uid="uid://dpleicsw8jbw7" path="res://scripts/main_4.gd" id="1_oa13q"]
+[ext_resource type="Texture2D" uid="uid://cjg2bcwsw0n5r" path="res://assets/emails/minigame 4/tainah_idle-Sheet.png" id="2_dfkmr"]
+[ext_resource type="Texture2D" uid="uid://becmgyfyhskev" path="res://assets/emails/minigame 4/cenario_creditos-Sheet.png" id="2_rmphk"]
+[ext_resource type="Texture2D" uid="uid://bdolk737b0s2y" path="res://icon.svg" id="4_plcg0"]
+[ext_resource type="Script" uid="uid://tvs4o4743nen" path="res://scripts/fade.gd" id="5_2o5iw"]
+[ext_resource type="AudioStream" uid="uid://chqeodd16mwtx" path="res://assets/audio/WhatsApp Audio 2025-04-03 at 21.28.17.mp3" id="6_2o5iw"]
+[ext_resource type="Texture2D" uid="uid://dga8s66n0bibe" path="res://assets/emails/minigame 4/amigos-Sheet.png" id="8_rmphk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iewc"]
+atlas = ExtResource("2_rmphk")
+region = Rect2(0, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ys0p"]
+atlas = ExtResource("2_rmphk")
+region = Rect2(400, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc4yt"]
+atlas = ExtResource("2_rmphk")
+region = Rect2(800, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id88q"]
+atlas = ExtResource("2_rmphk")
+region = Rect2(1200, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfkmr"]
+atlas = ExtResource("1_60smj")
+region = Rect2(0, 0, 170, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa13q"]
+atlas = ExtResource("1_60smj")
+region = Rect2(170, 0, 170, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guvuo"]
+atlas = ExtResource("1_60smj")
+region = Rect2(340, 0, 170, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plcg0"]
+atlas = ExtResource("1_60smj")
+region = Rect2(510, 0, 170, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o5iw"]
+atlas = ExtResource("1_60smj")
+region = Rect2(680, 0, 170, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fp5bv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iewc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ys0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc4yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id88q")
+}],
+"loop": true,
+"name": &"back3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfkmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa13q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guvuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plcg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o5iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp5bv"]
+atlas = ExtResource("2_dfkmr")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmphk"]
+atlas = ExtResource("2_dfkmr")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhapm"]
+atlas = ExtResource("2_dfkmr")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmwa2"]
+atlas = ExtResource("2_dfkmr")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msc4n"]
+atlas = ExtResource("2_dfkmr")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3iewc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp5bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmphk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhapm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmwa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msc4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3sjy"]
+atlas = ExtResource("8_rmphk")
+region = Rect2(0, 0, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a67c6"]
+atlas = ExtResource("8_rmphk")
+region = Rect2(100, 0, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akjpp"]
+atlas = ExtResource("8_rmphk")
+region = Rect2(200, 0, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y53c"]
+atlas = ExtResource("8_rmphk")
+region = Rect2(300, 0, 100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlc2d"]
+atlas = ExtResource("8_rmphk")
+region = Rect2(400, 0, 100, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e34vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3sjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akjpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y53c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlc2d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main4" type="Node2D"]
+script = ExtResource("1_oa13q")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="background"]
+visible = false
+texture_filter = 1
+position = Vector2(576, 330)
+scale = Vector2(6.8988, 9.64566)
+sprite_frames = SubResource("SpriteFrames_fp5bv")
+animation = &"back3"
+autoplay = "default"
+
+[node name="foreground" type="Node2D" parent="."]
+
+[node name="tainah" type="AnimatedSprite2D" parent="foreground"]
+visible = false
+texture_filter = 1
+position = Vector2(534, 478)
+scale = Vector2(8.98233, 8.98233)
+sprite_frames = SubResource("SpriteFrames_3iewc")
+autoplay = "default"
+
+[node name="fade" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+z_index = 100
+scale = Vector2(42.2852, -31.2757)
+texture = ExtResource("4_plcg0")
+script = ExtResource("5_2o5iw")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2o5iw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="amigues" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/amigues"]
+texture_filter = 1
+position = Vector2(573, 290)
+scale = Vector2(11.1077, 11.1077)
+sprite_frames = SubResource("SpriteFrames_e34vm")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 43.0
+offset_right = 249.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Nicolas"
+
+[node name="Label2" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 43.0
+offset_right = 520.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Felipe"
+
+[node name="Label3" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 43.0
+offset_right = 792.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Samantha"
+
+[node name="Label4" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 42.0
+offset_right = 1097.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Arthur"
+
+[node name="Label5" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 518.0
+offset_right = 249.0
+offset_bottom = 590.0
+theme_override_font_sizes/font_size = 40
+text = "Pixel art & 
+Game art"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 518.0
+offset_right = 493.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 40
+text = "Game 
+developer"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 518.0
+offset_right = 792.0
+offset_bottom = 590.0
+theme_override_font_sizes/font_size = 40
+text = "UI Artist"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="CanvasLayer/amigues"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 517.0
+offset_right = 1038.0
+offset_bottom = 589.0
+theme_override_font_sizes/font_size = 40
+text = "SFX Designer"
+horizontal_alignment = 1

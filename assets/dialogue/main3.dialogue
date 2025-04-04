@@ -1,3 +1,25 @@
 ~ start
+set Global.playerDialogueState = 4
+Padre: Se alguém tem algo contra esta união, que fale agora ou cale-se para sempre...
 
+Brás Cubas: Esse casamento não vai acontecer!
+
+Virgília: Brás?! O que está fazendo aqui?
+
+
+Lobo Neves: Você perdeu o juízo?
+
+Brás Cubas: Não, apenas percebi uma coisa ao qual não posso me calar: Virgília me ama, e eu a amo!
+
+Brás Cubas: Eu perderia o juízo se deixasse Virgília presa a um casamento sem amor!
+
+Lobo Neves: Retire-se agora, Cubas!
+
+Lobo Neves: Ou eu mesmo o farei.
+
+Brás Cubas: Então tente.
 => END
+
+~ final
+???: E ganhou! Brás cuba havia ganhando aquela luta! Bem...foi isso que ele queria que tivesse acontecido.
+=> END 

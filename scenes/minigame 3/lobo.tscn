@@ -1,9 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://f8fx83j4ujy3"]
+[gd_scene load_steps=49 format=3 uid="uid://f8fx83j4ujy3"]
 
 [ext_resource type="Script" uid="uid://ccjuxbg0up0ph" path="res://scripts/lobo.gd" id="1_tdj67"]
 [ext_resource type="Texture2D" uid="uid://fp5wqgwer0pk" path="res://assets/emails/minigame 3/lobo_idle-Sheet.png" id="1_vyahx"]
 [ext_resource type="Texture2D" uid="uid://bxqayx4cekdh6" path="res://assets/emails/minigame 3/lobo_attack-Sheet.png" id="2_hkj1h"]
 [ext_resource type="Texture2D" uid="uid://cod80mwrxtdal" path="res://assets/emails/minigame 3/lobo_run-Sheet.png" id="2_vyahx"]
+[ext_resource type="Texture2D" uid="uid://dv3kyq73xgpfg" path="res://assets/emails/minigame 3/lobo_back_walk-Sheet.png" id="3_0t7wg"]
+[ext_resource type="Texture2D" uid="uid://dhrsadxdh2tn" path="res://assets/emails/minigame 3/lobo_damage-Sheet.png" id="3_x5vmt"]
+[ext_resource type="AudioStream" uid="uid://cc7jetc4woh2n" path="res://assets/audio/minigame 3/somdoars (mp3cut.net).mp3" id="7_b83rp"]
+[ext_resource type="AudioStream" uid="uid://c5l3m1f3bwcer" path="res://assets/audio/minigame 3/porradavariada (mp3cut.net).mp3" id="8_s1ybv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vyahx"]
 
@@ -26,6 +30,70 @@ region = Rect2(150, 0, 50, 50)
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2iqj"]
 atlas = ExtResource("2_hkj1h")
 region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta812"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ax3"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2vp3"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dxy4"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpv0k"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2wl7"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijjf1"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6tit"]
+atlas = ExtResource("3_0t7wg")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4fyd"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8tm8"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jglgb"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgq8k"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8vfe"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngbg4"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sbd6"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng1o"]
+atlas = ExtResource("3_x5vmt")
+region = Rect2(350, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv4ql"]
 atlas = ExtResource("1_vyahx")
@@ -101,6 +169,64 @@ animations = [{
 "name": &"attack_lobo",
 "speed": 1.0
 }, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ta812")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_h3ax3")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_u2vp3")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_5dxy4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_lpv0k")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_c2wl7")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ijjf1")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_t6tit")
+}],
+"loop": false,
+"name": &"backwalk_lobo",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_t4fyd")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_s8tm8")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_jglgb")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_mgq8k")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_t8vfe")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_ngbg4")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_0sbd6")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_fng1o")
+}],
+"loop": false,
+"name": &"damaged_lobo",
+"speed": 1.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -157,6 +283,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdj67"]
+radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_x5vmt"]
 length = 0.001
@@ -223,7 +350,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_hkj1h"]
 resource_name = "attack_lobo"
-length = 3.0
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -258,7 +385,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(20.34, -3.3)]
+"values": [Vector2(0, 0), Vector2(13.465, -4.56)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -280,6 +407,18 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("hitsound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.366667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -316,4 +455,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_x5vmt")
 }
 
+[node name="attackCooldown" type="Timer" parent="."]
+
+[node name="hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_b83rp")
+
+[node name="hitland" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_s1ybv")
+
 [connection signal="body_entered" from="AnimatedSprite2D/hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

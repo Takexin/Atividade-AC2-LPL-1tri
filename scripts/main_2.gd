@@ -29,7 +29,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		playerInstance.global_position = cutscenePlayer.global_position
 		cutscenePlayer.queue_free()
 		condeCadeira.queue_free()
-		#playerInstance.get_child(0).connect("sceneFinished", onSceneFinished)
+		playerInstance.get_child(0).connect("sceneFinished", onSceneFinished)
 		playerInstance.get_child(0).currentPlayer = 1
 		playerInstance.z_index = 3
 		cutsceneCamera.enabled = false
@@ -41,10 +41,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 		
 func onSceneFinished():
-	get_tree().create_timer(2).timeout
+	get_tree().create_timer(1).timeout
+	$ambient_music.stop()
+	$ambient_people.stop()
 	DialogueManager.show_dialogue_balloon(dialogue, "final")
 	await DialogueManager.dialogue_ended
-	print("diaologue ended on main 2")
+	var core = get_tree().root.get_node("core")
+	visible = false
+	await get_tree().create_timer(2).timeout
+	core.swapScene(null,3)
 
 func _on_button_pressed() -> void:
 	var core = get_tree().root.get_node("core")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dery6xt0sbj5j"
+path="res://.godot/imported/tainah.mp3-35073030d8aef3efc142b73cd2a10d8a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/minigame 3/tainah.mp3"
+dest_files=["res://.godot/imported/tainah.mp3-35073030d8aef3efc142b73cd2a10d8a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

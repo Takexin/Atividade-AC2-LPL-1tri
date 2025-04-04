@@ -382,14 +382,14 @@ script = ExtResource("1_choun")
 [node name="Untitled3" type="Sprite2D" parent="main"]
 self_modulate = Color(0.691, 0.729, 0.589, 1)
 z_index = -13
-position = Vector2(2060, 178.412)
+position = Vector2(2060, 150.412)
 scale = Vector2(3.33395, 3.33395)
 texture = ExtResource("3_choun")
 
 [node name="Untitled2" type="Sprite2D" parent="main"]
 self_modulate = Color(0.691, 0.729, 0.589, 1)
 z_index = -13
-position = Vector2(-1425, 178.412)
+position = Vector2(-1425, 150.412)
 scale = Vector2(3.33395, 3.33395)
 texture = ExtResource("3_choun")
 
@@ -401,7 +401,7 @@ script = null
 [node name="Untitled" type="Sprite2D" parent="main"]
 self_modulate = Color(0.691, 0.729, 0.589, 1)
 z_index = -13
-position = Vector2(344, 178.412)
+position = Vector2(344, 150.412)
 scale = Vector2(3.33395, 3.33395)
 texture = ExtResource("3_choun")
 
@@ -467,6 +467,7 @@ animation = &"wood"
 autoplay = "wood"
 
 [node name="fade" type="Sprite2D" parent="main/CanvasLayer"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = 100
 scale = Vector2(42.2852, -31.2757)
@@ -526,7 +527,6 @@ position = Vector2(1734, 243)
 libraries = {
 &"": SubResource("AnimationLibrary_tipki")
 }
-speed_scale = 2.0
 
 [node name="startCamera" type="Camera2D" parent="main"]
 position = Vector2(339, 61)

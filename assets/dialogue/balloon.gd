@@ -26,6 +26,7 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+signal lineEnded
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -105,6 +106,11 @@ func apply_dialogue_line() -> void:
 		portrait_path = "res://assets/emails/icons/%s s.png"%dialogue_line.character.to_lower()
 	elif Global.playerDialogueState == -1:
 		portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
+	elif Global.playerDialogueState == 4:
+		if dialogue_line.character == "Brás Cubas":
+			portrait_path = "res://assets/emails/icons/%s s.png"%dialogue_line.character.to_lower()
+		else:
+			portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
 	else:
 		portrait_path = "res://assets/emails/icons/%s.png"%dialogue_line.character.to_lower()
 	if FileAccess.file_exists(portrait_path):
@@ -136,6 +142,7 @@ func apply_dialogue_line() -> void:
 		next(dialogue_line.next_id)
 	else:
 		is_waiting_for_input = true
+		lineEnded.emit()
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
 
@@ -159,27 +166,33 @@ func _on_mutated(_mutation: Dictionary) -> void:
 	will_hide_balloon = true
 	mutation_cooldown.start(0.1)
 
-
+func skip():
+	dialogue_label.skip_typing()
+func skipNext():
+	next(dialogue_line.next_id)
+var canSkip = true
 func _on_balloon_gui_input(event: InputEvent) -> void:
+	if canSkip:
+		
 	# See if we need to skip typing of the dialogue
-	if dialogue_label.is_typing:
-		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
-		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
-		if mouse_was_clicked or skip_button_was_pressed:
-			get_viewport().set_input_as_handled()
-			dialogue_label.skip_typing()
-			return
+		if dialogue_label.is_typing and canSkip:
+			var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
+			var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
+			if mouse_was_clicked or skip_button_was_pressed:
+				get_viewport().set_input_as_handled()
+				dialogue_label.skip_typing()
+				return
 
-	if not is_waiting_for_input: return
-	if dialogue_line.responses.size() > 0: return
+		if not is_waiting_for_input: return
+		if dialogue_line.responses.size() > 0: return
 
-	# When there are no response options the balloon itself is the clickable thing
-	get_viewport().set_input_as_handled()
+		# When there are no response options the balloon itself is the clickable thing
+		get_viewport().set_input_as_handled()
 
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		next(dialogue_line.next_id)
-	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
-		next(dialogue_line.next_id)
+		if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+			next(dialogue_line.next_id)
+		elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+			next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
@@ -190,17 +203,33 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
-	if dialogue_line.character == "Bras Cubas":
+	print(dialogue_line.character)
+	if dialogue_line.character == "Brás Cubas":
 		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.07
 		if not letter in [",", ".", " "]:
 			$stream_tutu.pitch_scale = randf_range(0.85,0.90)
 			$stream_tutu.play()
+	elif dialogue_line.character == "Padre":
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.07
+		if not letter in [",", ".", " "]:
+			$stream_padre.pitch_scale = randf_range(1.05,1.02)
+			$stream_padre.play()
+	elif dialogue_line.character == "???":
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.07
+		if not letter in [",", ".", " "]:
+			$stream_padre.pitch_scale = randf_range(1.05,1.02)
+			$stream_padre.play()
+	elif dialogue_line.character == "Tainah":
+		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.07
+		if not letter in [",", ".", " "]:
+			$stream_tainah.pitch_scale = randf_range(1.05,1.02)
+			$stream_tainah.play()
 	elif dialogue_line.character == "Luís Cubas":
 		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
 		if not letter in [",", ".", " "]:
 			$stream_nicks.pitch_scale = randf_range(1.00,1.05)
 			$stream_nicks.play()
-	elif dialogue_line.character == "Conde da Cunha":
+	elif dialogue_line.character == "Conde da Cunha" or dialogue_line.character == "Virgília":
 		$Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel.seconds_per_step = 0.04
 		if not letter in [",", ".", " "]:
 			$stream_samis.pitch_scale = randf_range(1.00,1.05)
